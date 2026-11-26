@@ -1,0 +1,587 @@
+{
+  "tool": "gcp-data-platform-assessment",
+  "version": "1.0.0",
+  "started_at": "2026-11-26T01:13:47+00:00",
+  "finished_at": "2026-11-26T01:13:49+00:00",
+  "python": "3.12.12",
+  "platform": "macOS-26.7.1-arm64-arm-64bit",
+  "mode": "demo",
+  "modules": [
+    "discovery",
+    "bigquery",
+    "storage",
+    "pipelines",
+    "services",
+    "security",
+    "billing",
+    "lineage",
+    "powerbi"
+  ],
+  "days": 90,
+  "include_sql": false,
+  "anonymize": true,
+  "arguments": {
+    "mode": "demo",
+    "modules": [],
+    "days": 90,
+    "projects": [],
+    "regions": [],
+    "include_sql": false,
+    "focus_file": null,
+    "config": null
+  },
+  "identity": {
+    "principal_hash": null,
+    "method": null
+  },
+  "projects_selected": [
+    "rx-dados-prd",
+    "rx-ingestao-prd",
+    "rx-bi-prd",
+    "rx-dados-hml",
+    "rx-ml-dev",
+    "rx-sandbox-analytics"
+  ],
+  "bigquery_query_stats": null,
+  "http_requests": {
+    "gcp": null,
+    "powerbi": null
+  },
+  "read_only_guarantees": [
+    "Somente GET; POST apenas em endpoints de leitura allowlisted (consultas SELECT, dry run, testIamPermissions, getIamPolicy, searchLinks, scanner Power BI)",
+    "Nenhuma tabela de negócio consultada; nenhum recurso criado ou alterado",
+    "Nenhuma informação enviada a serviços externos além das APIs Google/Microsoft consultadas"
+  ],
+  "files": [
+    {
+      "path": "architecture_as_is.mmd",
+      "bytes": 1460,
+      "sha256": "a549d95b68dc09a9c1d367a781967773639d299c1bc8a87b2ecbc45b5108887e"
+    },
+    {
+      "path": "assessment_coverage.json",
+      "bytes": 35225,
+      "sha256": "7eb65bdbe98b977415ac246c3b51c47765f6d7f94d127042a9a74b8aa0b22526"
+    },
+    {
+      "path": "assessment_report.md",
+      "bytes": 96549,
+      "sha256": "df428444da175adb2201e6aa29520fbc0b54f77f41e356f156dfb3d87fb33397"
+    },
+    {
+      "path": "assessment_report.xlsx",
+      "bytes": 587711,
+      "sha256": "17bdccb38041f9558fe89c49b2db3b6d15abbd3f91c152dc306c4ef11a328258"
+    },
+    {
+      "path": "bigquery_datasets.csv",
+      "bytes": 3311,
+      "sha256": "de34b0590a849348db2251f45ea4f9b03be0a2ce5d61a454436e4a68688c786d"
+    },
+    {
+      "path": "bigquery_routines.csv",
+      "bytes": 3855,
+      "sha256": "335bb9e61aa55705ea0fc6be5dca77b7c78a4997626e65abe5d30b4f84c666de"
+    },
+    {
+      "path": "bigquery_tables.csv",
+      "bytes": 140014,
+      "sha256": "c2b4901e37bd2a7dceec05deedfa5a3715fff9f38dc0eae7af87654a19ac7412"
+    },
+    {
+      "path": "capacity_analysis.csv",
+      "bytes": 974938,
+      "sha256": "200d45d4a605b223ac15e4779b1d6327ec72b6f221bbfc8a7317aa3f88eb7608"
+    },
+    {
+      "path": "cloud_storage_inventory.csv",
+      "bytes": 4276,
+      "sha256": "770b0590e7f10b97e98bd3f0fcb42ffcbfcf0436a345e9225c9526dab88ac5d6"
+    },
+    {
+      "path": "cost_analysis.csv",
+      "bytes": 3230,
+      "sha256": "cf3900fa57963f05f74ea47329bd74f2fd74cd227bb06f105da8e716b58e4831"
+    },
+    {
+      "path": "data_lineage.graphml",
+      "bytes": 240372,
+      "sha256": "965b5a7ea21ada9a2e81a2af28b03bebc2b945af940c34c9f504d2c0b51f7659"
+    },
+    {
+      "path": "data_lineage.json",
+      "bytes": 322861,
+      "sha256": "9fb9ab959ffbb49756413525e0b10c05b0bcaf587345264affdad4d78711f2cf"
+    },
+    {
+      "path": "data_lineage.mmd",
+      "bytes": 8531,
+      "sha256": "c59be9e289252c1326d0240f22de8bebd57771227f373ef1f89076dec5556782"
+    },
+    {
+      "path": "databricks_sizing_inputs.json",
+      "bytes": 13404,
+      "sha256": "db3cf45ce5a14f3181aac48ac97cb1ad5ee8edef61bd849f27f2d1b9b457993c"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Indicadores Diretoria.SemanticModel/model.bim",
+      "bytes": 1340,
+      "sha256": "ed5bd65825bf4b118d52d7c8056b3c01a28b96ac344c8eaebb4d90313a27a6df"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.Report/definition/pages/p0/page.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.Report/definition/pages/p0/visuals/v0/visual.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.Report/definition/pages/p0/visuals/v1/visual.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.Report/definition/pages/p0/visuals/v2/visual.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.Report/definition/pages/p0/visuals/v3/visual.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.Report/definition/pages/p0/visuals/v4/visual.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.Report/definition/pages/p0/visuals/v5/visual.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.Report/definition/pages/p0/visuals/v6/visual.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.Report/definition/pages/p0/visuals/v7/visual.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.Report/definition/pages/p1/page.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.Report/definition/pages/p1/visuals/v0/visual.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.Report/definition/pages/p1/visuals/v1/visual.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.Report/definition/pages/p1/visuals/v2/visual.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.Report/definition/pages/p2/page.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.Report/definition/pages/p2/visuals/v0/visual.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.Report/definition/pages/p2/visuals/v1/visual.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.Report/definition/pages/p2/visuals/v2/visual.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.Report/definition/pages/p2/visuals/v3/visual.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.Report/definition/pages/p2/visuals/v4/visual.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.Report/definition/pages/p2/visuals/v5/visual.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.Report/definition/pages/p3/page.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.Report/definition/pages/p3/visuals/v0/visual.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.Report/definition/pages/p3/visuals/v1/visual.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.Report/definition/pages/p3/visuals/v2/visual.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.Report/definition/pages/p3/visuals/v3/visual.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.Report/definition/pages/p3/visuals/v4/visual.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.Report/definition/pages/p3/visuals/v5/visual.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.Report/definition/pages/p3/visuals/v6/visual.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.Report/definition/pages/p3/visuals/v7/visual.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.Report/definition/pages/p3/visuals/v8/visual.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.SemanticModel/definition/relationships.tmdl",
+      "bytes": 125,
+      "sha256": "a7142e793b9707b1ac760cbb12d8bbfac010c55310c3fcb8f839a2110d54a2fc"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.SemanticModel/definition/roles/Unidade.tmdl",
+      "bytes": 155,
+      "sha256": "64c6089816641c1ddbe7324090a5d12439b599df51c18cc1175abd09c47fce70"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.SemanticModel/definition/tables/Atendimentos.tmdl",
+      "bytes": 1467,
+      "sha256": "9c10833363c95fadeb933a637cc5bdbe957a6f8246b147ec84cad6e422625cbe"
+    },
+    {
+      "path": "demo_powerbi_artifacts/Painel Assistencial.SemanticModel/definition/tables/Metas.tmdl",
+      "bytes": 341,
+      "sha256": "a042837ad981eab2fe5e2b5eccccc99f6178876a48401fb3ba688280749b4631"
+    },
+    {
+      "path": "demo_powerbi_artifacts/scanner_result_export.json",
+      "bytes": 27603,
+      "sha256": "ea8acefcf6ca86eca34db39d28cdbe03d24fdfc2cb02476dbde7b0b2237f20df"
+    },
+    {
+      "path": "execution.log",
+      "bytes": 132,
+      "sha256": "9727cab389e0e2f530b3860e3971c60a857872b7f6c6a3eb86801025de4d73e6"
+    },
+    {
+      "path": "infrastructure_inventory.csv",
+      "bytes": 5297,
+      "sha256": "6245b77ba3458cc8713b48b47a431346e000a7a2bfe0a5b3977856d20b386b47"
+    },
+    {
+      "path": "migration_readiness.json",
+      "bytes": 15291,
+      "sha256": "04b48d66131ceef24c843b0f03af39b0cea3e1a556dae932ead5e3aba4ef64f8"
+    },
+    {
+      "path": "missing_permissions.json",
+      "bytes": 413,
+      "sha256": "566ae8e5c66427dbcbb9a4741973b3c444e3c1d1d7b03a0909bbb5f302a1307d"
+    },
+    {
+      "path": "permissions_matrix.md",
+      "bytes": 10149,
+      "sha256": "d426d0e8a697dcb26a1237081f27799c7f93ef1b5b199fdb2da91e048affc1f5"
+    },
+    {
+      "path": "pipeline_inventory.csv",
+      "bytes": 18059,
+      "sha256": "cc10c9274837297c6e5a5a803fae612b74b070993d1db31ec7189f194be012fe"
+    },
+    {
+      "path": "poc_candidates.json",
+      "bytes": 8929,
+      "sha256": "323cd6de86ea29b8a2225dcd1c584bd26cac7ef937f9113fa7cdc32badf7fc98"
+    },
+    {
+      "path": "powerbi_dependencies.csv",
+      "bytes": 3210,
+      "sha256": "7b8813a354e088380e02ac9a26a793043271b7c41fbdd40a23a9104f46870535"
+    },
+    {
+      "path": "powerbi_inventory.csv",
+      "bytes": 4102,
+      "sha256": "0c4822ae2cd0d54b677efb2ceac7342997236044a6fd477b181e9065e9331d93"
+    },
+    {
+      "path": "powerbi_refresh_history.csv",
+      "bytes": 19389,
+      "sha256": "03153cef0c285d85d05f21e577cf170ea336c9df197d94ee2f28b70995932a12"
+    },
+    {
+      "path": "query_complexity.csv",
+      "bytes": 134766,
+      "sha256": "3157d44b0c83d59bb2a4c7f2ed8b8a93c00029da0304c784cfeab0ee8179996a"
+    },
+    {
+      "path": "raw/bigquery/datasets_list__rx-bi-prd.json",
+      "bytes": 291,
+      "sha256": "c726d8d1efa17bfac146cb78dd5255f8b0ab7d3d0be56a45c5ca73ebfdaea618"
+    },
+    {
+      "path": "raw/bigquery/datasets_list__rx-dados-hml.json",
+      "bytes": 303,
+      "sha256": "e2dcb358cbdc5e9e8cadf96e23e8a2419baea4965e0053931034f92083b819d1"
+    },
+    {
+      "path": "raw/bigquery/datasets_list__rx-dados-prd.json",
+      "bytes": 1025,
+      "sha256": "4d04464d028fb2603800fb9c569f1497d105aa1d23c7acf9ce8f805a97bc7023"
+    },
+    {
+      "path": "raw/bigquery/datasets_list__rx-ingestao-prd.json",
+      "bytes": 461,
+      "sha256": "952abaad06fa3f1bbce043e65b0ace1f4082fe20ce26b2efa1db060a2145b32a"
+    },
+    {
+      "path": "raw/bigquery/datasets_list__rx-ml-dev.json",
+      "bytes": 259,
+      "sha256": "6ed5aea9dbc79b94fe8de9c74c39ae2b1eea1f581057044b2f433ced0d8250fe"
+    },
+    {
+      "path": "raw/bigquery/datasets_list__rx-sandbox-analytics.json",
+      "bytes": 163,
+      "sha256": "598c092a19c8d0425d1049551e82098049e16e8d5358d1f5d3331cd63f6b2aaa"
+    },
+    {
+      "path": "raw/bigquery/metadata__rx-bi-prd__southamerica-east1.json",
+      "bytes": 58725,
+      "sha256": "c8346cf23c882be873fa15f66ff7e720c12ed167880bdc7ec5411262787cf00a"
+    },
+    {
+      "path": "raw/bigquery/metadata__rx-dados-hml__southamerica-east1.json",
+      "bytes": 106363,
+      "sha256": "22aff51f6978e7e78512d8d8446568e66b19360d454215d3738ec7b55de91749"
+    },
+    {
+      "path": "raw/bigquery/metadata__rx-dados-prd__US.json",
+      "bytes": 2696,
+      "sha256": "84b70323941d502d8c0bb10743c0ae14a9859ab577b49f5b613b8d69f8b6b452"
+    },
+    {
+      "path": "raw/bigquery/metadata__rx-dados-prd__southamerica-east1.json",
+      "bytes": 404891,
+      "sha256": "0162163e21b500630b4ee6de0eee687f188b52feccced432b805e5fb05400867"
+    },
+    {
+      "path": "raw/bigquery/metadata__rx-ingestao-prd__southamerica-east1.json",
+      "bytes": 165282,
+      "sha256": "d98dc72c13dead210d290015bc5a4180588e51b6ec6a4c36bfe6b497a61bf87b"
+    },
+    {
+      "path": "raw/bigquery/metadata__rx-ml-dev__US.json",
+      "bytes": 25900,
+      "sha256": "c4d6ef281c3a614156a3f60dc68a489ed860c8447fea94af070a33b1ef2bc7ee"
+    },
+    {
+      "path": "raw/bigquery/metadata__rx-sandbox-analytics__southamerica-east1.json",
+      "bytes": 55865,
+      "sha256": "b052c25e0eafec79d6c9ae52f876d46bc389bf9afa1235f77a0b4ad323a4e289"
+    },
+    {
+      "path": "raw/bigquery/storage_history.json",
+      "bytes": 25599,
+      "sha256": "6a1f05173d0080a562b2695550d4fda156dc5b7067310838bb3d5d937acfed8a"
+    },
+    {
+      "path": "raw/bigquery_capacity/capacity.json",
+      "bytes": 691,
+      "sha256": "d8efc794218d1210ea37005473a42290e4c1a18f7330cbf25bd551d58f3b526c"
+    },
+    {
+      "path": "raw/bigquery_workloads/workloads__rx-bi-prd__southamerica-east1.json",
+      "bytes": 4381227,
+      "sha256": "d8746321550ae61c1560532d2f0d0c447c32e21d7eab87c468b9a7d0b86ee847"
+    },
+    {
+      "path": "raw/bigquery_workloads/workloads__rx-dados-prd__southamerica-east1.json",
+      "bytes": 5205795,
+      "sha256": "03cbafc66a927b99c68269ea54cb8a91056265f818276a845eeb6b5a0a8f9931"
+    },
+    {
+      "path": "raw/bigquery_workloads/workloads__rx-ingestao-prd__southamerica-east1.json",
+      "bytes": 4145592,
+      "sha256": "2437718b86ab8f2430ce664d83b3c8f9ebc6d5098f9a606c27fcf0ddaa3e0b9f"
+    },
+    {
+      "path": "raw/bigquery_workloads/workloads__rx-ml-dev__US.json",
+      "bytes": 3871936,
+      "sha256": "6abdb5da6bc5ab7a2aa9db1f16d20ee28ba13e63c975c3a32eced4265ae8253a"
+    },
+    {
+      "path": "raw/billing/billing_export.json",
+      "bytes": 79115,
+      "sha256": "7be31d73d21e62311d145e200f179239910465097c20701b3f2a4afbfcbbf57d"
+    },
+    {
+      "path": "raw/cloud_storage/buckets.json",
+      "bytes": 11172,
+      "sha256": "96983e91bad08656379b03f1b2bbdae355a63a4744e002ce8848f84dded415cf"
+    },
+    {
+      "path": "raw/cloud_storage/monitoring.json",
+      "bytes": 14004,
+      "sha256": "4b1e8936af2d62ca9198a2611337dc462d645176008e2e5800be6e0b3937a249"
+    },
+    {
+      "path": "raw/discovery/api_usage.json",
+      "bytes": 1163,
+      "sha256": "9114534f72f15527b4885cafe256c48bde0c40cfb3ab03cfd05c17e38f4314fb"
+    },
+    {
+      "path": "raw/discovery/assets.json",
+      "bytes": 10003,
+      "sha256": "c8e4153dc404c15902b443438fa5693168a73f17998ba7ebccca0e2e6288f0c5"
+    },
+    {
+      "path": "raw/discovery/billing_accounts.json",
+      "bytes": 116,
+      "sha256": "d92bb284889cad17acc2082c0bd6c0525e9f0ae3f2f6cc0c3dfb1e6cb1771070"
+    },
+    {
+      "path": "raw/discovery/billing_info.json",
+      "bytes": 703,
+      "sha256": "5c6c62ab356b007b15ef423cca1b1b2724b9a01a4b106357af3da1f063b8bfae"
+    },
+    {
+      "path": "raw/discovery/folders.json",
+      "bytes": 282,
+      "sha256": "5fa8a499f64db05b2d9ce22593549f1abba632cd46cf4f5f999f3aabe9431091"
+    },
+    {
+      "path": "raw/discovery/networks.json",
+      "bytes": 5525,
+      "sha256": "165c11b368386502bcf7322376059b0c5b5c50ff4ee6d5a1b2b060826f598cc8"
+    },
+    {
+      "path": "raw/discovery/organizations.json",
+      "bytes": 117,
+      "sha256": "988df84e77ebb1b784c53951622fdc4f069260f51ca395e6025f957cd2daaec4"
+    },
+    {
+      "path": "raw/discovery/projects.json",
+      "bytes": 2867,
+      "sha256": "2e5dd2e64750c3a055ec2247257b3d20470bee05cb2f966d3ca2e0dcecdc0389"
+    },
+    {
+      "path": "raw/discovery/service_accounts.json",
+      "bytes": 5510,
+      "sha256": "2476d823ed528b8b9599bfde9d6c9312f0adac92bfdb1f61bd28d724f605a884"
+    },
+    {
+      "path": "raw/discovery/services_enabled.json",
+      "bytes": 3735,
+      "sha256": "3928a32bc48c0974d1f5bea1a8b8d9ae54ed9248b001520320c24c04363cc0bb"
+    },
+    {
+      "path": "raw/lineage/lineage_api_links.json",
+      "bytes": 390,
+      "sha256": "2cef1f9db782b4959b25b309f2ae6804fd3293566cff6ee0362f42908b4a7573"
+    },
+    {
+      "path": "raw/pipelines/bigquery_connections.json",
+      "bytes": 454,
+      "sha256": "45892148f4a1115b42020d6bbe0a7604ce5ed4a620d4aee86430770f6b51a82d"
+    },
+    {
+      "path": "raw/pipelines/composer.json",
+      "bytes": 1168,
+      "sha256": "01300437968b023a51820c5543b125d56cf7de9f84dfd8a632be2bfb6eb81fd5"
+    },
+    {
+      "path": "raw/pipelines/dataform_edges.json",
+      "bytes": 450,
+      "sha256": "5d9c1b6d4d07b6dd79d243a05adb44e39201b6f07ad61d42b72cb6487f1d7105"
+    },
+    {
+      "path": "raw/pipelines/dataproc.json",
+      "bytes": 382,
+      "sha256": "058723a2f7204c2ba4d1a25bbf7b3ec6f0ef43292fd74f22884c0005feb5bba1"
+    },
+    {
+      "path": "raw/pipelines/datastream.json",
+      "bytes": 759,
+      "sha256": "7851e0b64ae5de254d7b3d6e9ef274af40b978065fdc2e78d72d2a234cb13cc6"
+    },
+    {
+      "path": "raw/pipelines/pipeline_inventory.json",
+      "bytes": 47832,
+      "sha256": "ec03b4ca51af5133624723b11aadb68ab74592feb3f125df940501af516d848d"
+    },
+    {
+      "path": "raw/pipelines/transfers.json",
+      "bytes": 19267,
+      "sha256": "ae9bb135b862da1561a6116fa5f6d6b6f6f4aa632a37afa65abd9fbfca91e801"
+    },
+    {
+      "path": "raw/powerbi/powerbi.json",
+      "bytes": 117664,
+      "sha256": "a8b9452627d90442af7187a936471d0f93ebf30243193e3335cb2e3022c844aa"
+    },
+    {
+      "path": "raw/security/security.json",
+      "bytes": 32581,
+      "sha256": "da9c7a894177f7515665c152f817000341cc18d5abc3d360995643bf2811bf8a"
+    },
+    {
+      "path": "raw/services/services.json",
+      "bytes": 4955,
+      "sha256": "db114995656cebc3d863e2f3b86352d9331d4bccb256d37abee8d5526d3b32c9"
+    },
+    {
+      "path": "security_findings.csv",
+      "bytes": 8011,
+      "sha256": "587bcf1dd364eb20556fe8db330fb758d329b4c6952dc1190496f959ebaca446"
+    },
+    {
+      "path": "workload_analysis.csv",
+      "bytes": 14522,
+      "sha256": "04859bf083bec48d484f8d9e1d9cbf7bc35c6a8db18eef9c202ff7478c235dd8"
+    }
+  ]
+}

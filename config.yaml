@@ -1,0 +1,83 @@
+# Configuração de exemplo — GCP Data Platform Assessment
+# Todos os campos são opcionais; valores omitidos usam os padrões de core/context.py.
+
+gcp:
+  organization_id: null            # ex.: "123456789012" (habilita VPC-SC / Org Policy em nível de organização)
+  projects: []                     # vazio = todos os projetos visíveis ao principal; ou lista explícita
+  exclude_projects: []
+  exclude_project_patterns: ["^sys-", "^apps-script-"]
+  regions: []                      # vazio = regiões descobertas a partir dos datasets BigQuery (ex.: ["US", "southamerica-east1"])
+  impersonate_service_account: null   # ex.: assessment-reader@projeto.iam.gserviceaccount.com
+  quota_project: null              # projeto cobrado pelas chamadas de API (x-goog-user-project)
+  max_projects: 500
+
+execution:
+  days: 90                         # 7, 30, 60, 90 ... até 180 (retenção do INFORMATION_SCHEMA.JOBS)
+  concurrency: 4                   # projetos/regiões em paralelo
+  max_in_flight_requests: 12       # teto global de requisições HTTP simultâneas (todos os módulos somados)
+  parallel_modules: true           # módulos independentes rodam ao mesmo tempo; false = um por vez (ou use --sequential)
+  timeout_seconds: 60
+  max_retries: 5
+  timezone: America/Sao_Paulo      # fuso dos perfis horários de workload
+
+bigquery:
+  execution_project: null          # projeto onde os jobs de metadados rodam (precisa de roles/bigquery.jobUser)
+  max_bytes_billed_per_query: 214748364800    # 200 GiB — o preflight estima o custo antes da coleta
+  max_total_bytes_billed: 2199023255552       # 2 TiB  — orçamento total da execução
+  collect_columns: true
+  collect_partitions: false        # INFORMATION_SCHEMA.PARTITIONS (por dataset): proxy de ingestão diária; custo adicional
+  max_datasets_dataset_level_views: 200
+  top_fingerprints: 200
+  low_usage_days: 90
+  reservation_admin_projects: []   # projetos administradores de reservas (se diferentes dos projetos de consulta)
+
+sql:
+  mode: features                   # none | features (padrão; texto SQL não sai do BigQuery) | full (exige --include-sql)
+  store_sql_text: false            # com --include-sql --store-sql, grava o texto SQL nos arquivos brutos
+
+storage:
+  sample_objects_per_bucket: 2000  # 0 desativa a amostragem de objetos
+  max_buckets_sampled: 200
+
+pipelines:
+  airflow_rest_api: true           # lista DAGs/execuções via REST API do Airflow (Composer 2/3)
+  max_dag_runs_per_dag: 50
+  dataform_compilation_graph: true
+
+powerbi:
+  enabled: true
+  tenant_id: null                  # ou variável PBI_TENANT_ID
+  client_id: null                  # ou variável PBI_CLIENT_ID
+  auth_mode: service_principal     # service_principal | device_code
+  client_secret_env: PBI_CLIENT_SECRET
+  offline_path: null               # pasta com PBIP/TMDL/PBIT/model.bim/scanner JSON (modo offline)
+  activity_days: 28
+  principal_patterns: ["powerbi", "pbi", "gateway", "fabric"]   # contas de serviço do gateway/conector BigQuery
+
+billing:
+  export_table: null               # ex.: finops-prj.billing.gcp_billing_export_resource_v1_XXXXXX_XXXXXX_XXXXXX
+  export_location: US
+  months: 12
+  max_bytes_billed_per_query: 10737418240
+
+pricing_estimates:                 # usados SOMENTE sem Billing Export; preços de lista a validar
+  currency: USD
+  bq_on_demand_per_tib: 6.25
+  bq_edition_slot_hour: {STANDARD: 0.04, ENTERPRISE: 0.06, ENTERPRISE_PLUS: 0.10}
+
+security:
+  allowed_domains: []              # ex.: ["empresa.com.br"]; vazio = domínio mais frequente é inferido
+  sa_key_max_age_days: 90
+
+readiness_weights:                 # pesos do Migration Readiness Score (renormalizados quando falta evidência)
+  data_volume: 15
+  sql_complexity: 20
+  pipeline_complexity: 20
+  bi_coupling: 15
+  platform_specific_features: 15
+  security_governance: 15
+
+output:
+  excel: true
+  anonymize: true                  # pseudonimiza principals (HMAC com salt local; defina GCPA_REDACTION_SALT)
+  redact_hosts: true

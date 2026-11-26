@@ -1,0 +1,18 @@
+﻿ref,project_id,dataset,location,created,modified,options,hidden,logical_bytes,physical_bytes,long_term_bytes,tables,rows
+rx-bi-prd.semantic_bi,rx-bi-prd,semantic_bi,southamerica-east1,2023-04-01T00:00:00+00:00,2026-09-01T00:00:00+00:00,{},False,24237205762,4738589435,7220717469,14,43851381
+rx-bi-prd.extracoes_bi,rx-bi-prd,extracoes_bi,southamerica-east1,2023-04-01T00:00:00+00:00,2026-09-01T00:00:00+00:00,{},False,7170777391,1509412708,4171015119,15,14407443
+rx-dados-hml.dw_assistencial,rx-dados-hml,dw_assistencial,southamerica-east1,2023-04-01T00:00:00+00:00,2026-09-01T00:00:00+00:00,{},False,30793022922,6917283608,13694167771,26,59715570
+rx-dados-hml.dw_faturamento,rx-dados-hml,dw_faturamento,southamerica-east1,2023-04-01T00:00:00+00:00,2026-09-01T00:00:00+00:00,{},False,23500534933,3894566720,9996530525,25,49068071
+rx-dados-prd.finops,rx-dados-prd,finops,US,2023-04-01T00:00:00+00:00,2026-09-01T00:00:00+00:00,{},False,8181826655,1223691449,5667838614,1,11329209
+rx-dados-prd.raw_prontuario,rx-dados-prd,raw_prontuario,southamerica-east1,2023-04-01T00:00:00+00:00,2026-09-01T00:00:00+00:00,{},False,808033356390,140288501386,505314612451,40,1497591397
+rx-dados-prd.raw_faturamento,rx-dados-prd,raw_faturamento,southamerica-east1,2023-04-01T00:00:00+00:00,2026-09-01T00:00:00+00:00,{},False,835594660724,127358798792,541334695019,30,2120611759
+rx-dados-prd.stg_assistencial,rx-dados-prd,stg_assistencial,southamerica-east1,2023-04-01T00:00:00+00:00,2026-09-01T00:00:00+00:00,{},False,366893685725,69779835468,206247084209,35,868829886
+rx-dados-prd.dw_assistencial,rx-dados-prd,dw_assistencial,southamerica-east1,2023-04-01T00:00:00+00:00,2026-09-01T00:00:00+00:00,"{""storage_billing_model"": ""\""PHYSICAL\""""}",False,777521544658,152128784702,265687912567,43,1907888794
+rx-dados-prd.dw_faturamento,rx-dados-prd,dw_faturamento,southamerica-east1,2023-04-01T00:00:00+00:00,2026-09-01T00:00:00+00:00,"{""storage_billing_model"": ""\""PHYSICAL\""""}",False,251525856732,55159022894,133845158636,36,641057421
+rx-dados-prd.mart_bi,rx-dados-prd,mart_bi,southamerica-east1,2023-04-01T00:00:00+00:00,2026-09-01T00:00:00+00:00,{},False,37183233527,6022334537,20897390436,22,86657450
+rx-ingestao-prd.landing_oracle,rx-ingestao-prd,landing_oracle,southamerica-east1,2023-04-01T00:00:00+00:00,2026-09-01T00:00:00+00:00,{},False,729905327016,146448861195,451526705004,56,1531956864
+rx-ingestao-prd.landing_sqlserver,rx-ingestao-prd,landing_sqlserver,southamerica-east1,2023-04-01T00:00:00+00:00,2026-09-01T00:00:00+00:00,{},False,62956741131,11858716751,24144053202,25,198285937
+rx-ingestao-prd.eventos_app,rx-ingestao-prd,eventos_app,southamerica-east1,2023-04-01T00:00:00+00:00,2026-09-01T00:00:00+00:00,{},False,38050358859965,6633856312956,25883969638585,6,129031406802
+rx-ml-dev.ml_features,rx-ml-dev,ml_features,US,2023-04-01T00:00:00+00:00,2026-09-01T00:00:00+00:00,{},False,44079656855,8791809574,21538284196,12,93281435
+rx-ml-dev.ml_predicoes,rx-ml-dev,ml_predicoes,US,2023-04-01T00:00:00+00:00,2026-09-01T00:00:00+00:00,{},False,24007059548,6118763906,9677806502,6,35038080
+rx-sandbox-analytics.sandbox_analistas,rx-sandbox-analytics,sandbox_analistas,southamerica-east1,2023-04-01T00:00:00+00:00,2026-09-01T00:00:00+00:00,{},False,11145465864,2291219260,4366862335,40,27032067

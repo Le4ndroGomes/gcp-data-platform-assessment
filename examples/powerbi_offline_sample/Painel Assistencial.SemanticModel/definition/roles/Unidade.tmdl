@@ -1,0 +1,4 @@
+role Unidade
+	modelPermission: read
+
+	tablePermission Atendimentos = [id_unidade] IN LOOKUPVALUE(Acessos[id_unidade], Acessos[email], USERPRINCIPALNAME())

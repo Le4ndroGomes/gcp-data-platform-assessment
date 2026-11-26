@@ -1,0 +1,253 @@
+﻿dataset_id,workspace_id,type,status,start,duration_s
+ds-0,ws-1,Scheduled,Completed,2026-11-24T05:00:00Z,3284.4746284992043
+ds-0,ws-1,Scheduled,Completed,2026-11-24T12:00:00Z,2337.790310926148
+ds-0,ws-1,Scheduled,Completed,2026-11-24T18:00:00Z,1941.4902280422637
+ds-0,ws-1,Scheduled,Completed,2026-11-23T05:00:00Z,2269.440117298322
+ds-0,ws-1,Scheduled,Completed,2026-11-23T12:00:00Z,1832.0572612686424
+ds-0,ws-1,Scheduled,Completed,2026-11-23T18:00:00Z,2175.300779525762
+ds-0,ws-1,Scheduled,Completed,2026-11-22T05:00:00Z,3328.6275844591137
+ds-0,ws-1,Scheduled,Completed,2026-11-22T12:00:00Z,2267.107405016581
+ds-0,ws-1,Scheduled,Completed,2026-11-22T18:00:00Z,3418.687913496111
+ds-0,ws-1,Scheduled,Completed,2026-11-21T05:00:00Z,4190.710138573188
+ds-0,ws-1,Scheduled,Completed,2026-11-21T12:00:00Z,4158.8098407839025
+ds-0,ws-1,Scheduled,Completed,2026-11-21T18:00:00Z,2232.675193253724
+ds-0,ws-1,Scheduled,Completed,2026-11-20T05:00:00Z,3623.617628740384
+ds-0,ws-1,Scheduled,Completed,2026-11-20T12:00:00Z,2405.2871521042052
+ds-0,ws-1,Scheduled,Completed,2026-11-20T18:00:00Z,3063.3434383416825
+ds-0,ws-1,Scheduled,Completed,2026-11-19T05:00:00Z,2594.6488600266084
+ds-0,ws-1,Scheduled,Completed,2026-11-19T12:00:00Z,2698.521469807101
+ds-0,ws-1,Scheduled,Completed,2026-11-19T18:00:00Z,3266.061017623156
+ds-0,ws-1,Scheduled,Completed,2026-11-18T05:00:00Z,2020.2741907094999
+ds-0,ws-1,Scheduled,Completed,2026-11-18T12:00:00Z,3151.688448007457
+ds-0,ws-1,Scheduled,Completed,2026-11-18T18:00:00Z,3842.774796262712
+ds-0,ws-1,Scheduled,Completed,2026-11-17T05:00:00Z,4186.965679683584
+ds-0,ws-1,Scheduled,Completed,2026-11-17T12:00:00Z,4120.471093918208
+ds-0,ws-1,Scheduled,Completed,2026-11-17T18:00:00Z,1803.3947652406669
+ds-0,ws-1,Scheduled,Completed,2026-11-16T05:00:00Z,2582.483043137207
+ds-0,ws-1,Scheduled,Completed,2026-11-16T12:00:00Z,2256.8160104535827
+ds-0,ws-1,Scheduled,Completed,2026-11-16T18:00:00Z,2335.1252398497954
+ds-0,ws-1,Scheduled,Completed,2026-11-15T05:00:00Z,3440.7312985807657
+ds-0,ws-1,Scheduled,Completed,2026-11-15T12:00:00Z,2940.0551222114987
+ds-0,ws-1,Scheduled,Completed,2026-11-15T18:00:00Z,2666.78711473723
+ds-0,ws-1,Scheduled,Completed,2026-11-14T05:00:00Z,2137.910271789132
+ds-0,ws-1,Scheduled,Completed,2026-11-14T12:00:00Z,2128.986363592408
+ds-0,ws-1,Scheduled,Completed,2026-11-14T18:00:00Z,1816.8303354810819
+ds-0,ws-1,Scheduled,Completed,2026-11-13T05:00:00Z,2763.4688233016536
+ds-0,ws-1,Scheduled,Completed,2026-11-13T12:00:00Z,2459.5578077369496
+ds-0,ws-1,Scheduled,Completed,2026-11-13T18:00:00Z,1997.069548012731
+ds-0,ws-1,Scheduled,Completed,2026-11-12T05:00:00Z,4091.630990365255
+ds-0,ws-1,Scheduled,Completed,2026-11-12T12:00:00Z,4021.6505736447275
+ds-0,ws-1,Scheduled,Completed,2026-11-12T18:00:00Z,1890.043975423916
+ds-0,ws-1,Scheduled,Completed,2026-11-11T05:00:00Z,3508.6162441583638
+ds-0,ws-1,Scheduled,Completed,2026-11-11T12:00:00Z,3516.888052923271
+ds-0,ws-1,Scheduled,Completed,2026-11-11T18:00:00Z,3800.0382880478396
+ds-1,ws-1,Scheduled,Completed,2026-11-24T05:00:00Z,717.3244350773386
+ds-1,ws-1,Scheduled,Completed,2026-11-24T12:00:00Z,593.5074809504365
+ds-1,ws-1,Scheduled,Completed,2026-11-24T18:00:00Z,357.64655586300387
+ds-1,ws-1,Scheduled,Completed,2026-11-23T05:00:00Z,709.3126876065629
+ds-1,ws-1,Scheduled,Completed,2026-11-23T12:00:00Z,819.7377278102017
+ds-1,ws-1,Scheduled,Completed,2026-11-23T18:00:00Z,353.2521262951748
+ds-1,ws-1,Scheduled,Completed,2026-11-22T05:00:00Z,866.1334675199362
+ds-1,ws-1,Scheduled,Completed,2026-11-22T12:00:00Z,477.60796086632763
+ds-1,ws-1,Scheduled,Completed,2026-11-22T18:00:00Z,425.19049259492635
+ds-1,ws-1,Scheduled,Completed,2026-11-21T05:00:00Z,480.831489882666
+ds-1,ws-1,Scheduled,Completed,2026-11-21T12:00:00Z,790.1915413226966
+ds-1,ws-1,Scheduled,Completed,2026-11-21T18:00:00Z,876.6661210613966
+ds-1,ws-1,Scheduled,Completed,2026-11-20T05:00:00Z,371.5486672410688
+ds-1,ws-1,Scheduled,Completed,2026-11-20T12:00:00Z,588.9506824142212
+ds-1,ws-1,Scheduled,Completed,2026-11-20T18:00:00Z,459.67486991886085
+ds-1,ws-1,Scheduled,Completed,2026-11-19T05:00:00Z,830.3373239669039
+ds-1,ws-1,Scheduled,Completed,2026-11-19T12:00:00Z,836.797417034977
+ds-1,ws-1,Scheduled,Completed,2026-11-19T18:00:00Z,500.63046346042495
+ds-1,ws-1,Scheduled,Completed,2026-11-18T05:00:00Z,665.5443882251232
+ds-1,ws-1,Scheduled,Completed,2026-11-18T12:00:00Z,635.5692557096553
+ds-1,ws-1,Scheduled,Completed,2026-11-18T18:00:00Z,792.7109788788537
+ds-1,ws-1,Scheduled,Completed,2026-11-17T05:00:00Z,811.7506011827179
+ds-1,ws-1,Scheduled,Completed,2026-11-17T12:00:00Z,312.0003272123786
+ds-1,ws-1,Scheduled,Completed,2026-11-17T18:00:00Z,492.0157070880275
+ds-1,ws-1,Scheduled,Completed,2026-11-16T05:00:00Z,572.6219848010883
+ds-1,ws-1,Scheduled,Completed,2026-11-16T12:00:00Z,398.89573824579236
+ds-1,ws-1,Scheduled,Completed,2026-11-16T18:00:00Z,534.048721697832
+ds-1,ws-1,Scheduled,Completed,2026-11-15T05:00:00Z,353.1112014628702
+ds-1,ws-1,Scheduled,Completed,2026-11-15T12:00:00Z,686.9217526332332
+ds-1,ws-1,Scheduled,Completed,2026-11-15T18:00:00Z,883.1256805302642
+ds-1,ws-1,Scheduled,Completed,2026-11-14T05:00:00Z,532.4906347238809
+ds-1,ws-1,Scheduled,Completed,2026-11-14T12:00:00Z,423.7483387903025
+ds-1,ws-1,Scheduled,Completed,2026-11-14T18:00:00Z,588.9862385492644
+ds-1,ws-1,Scheduled,Completed,2026-11-13T05:00:00Z,689.8728888280617
+ds-1,ws-1,Scheduled,Completed,2026-11-13T12:00:00Z,373.03009163978527
+ds-1,ws-1,Scheduled,Completed,2026-11-13T18:00:00Z,877.1955288124161
+ds-1,ws-1,Scheduled,Completed,2026-11-12T05:00:00Z,867.1899521066946
+ds-1,ws-1,Scheduled,Completed,2026-11-12T12:00:00Z,538.2501375792722
+ds-1,ws-1,Scheduled,Completed,2026-11-12T18:00:00Z,742.6716120431429
+ds-1,ws-1,Scheduled,Completed,2026-11-11T05:00:00Z,704.6438288664589
+ds-1,ws-1,Scheduled,Completed,2026-11-11T12:00:00Z,306.9427085667232
+ds-1,ws-1,Scheduled,Completed,2026-11-11T18:00:00Z,893.4184981358833
+ds-2,ws-1,Scheduled,Completed,2026-11-24T05:00:00Z,566.5594093806733
+ds-2,ws-1,Scheduled,Completed,2026-11-24T12:00:00Z,778.9214312285535
+ds-2,ws-1,Scheduled,Completed,2026-11-24T18:00:00Z,471.6354477024395
+ds-2,ws-1,Scheduled,Completed,2026-11-23T05:00:00Z,366.21300186990914
+ds-2,ws-1,Scheduled,Completed,2026-11-23T12:00:00Z,807.2302443923619
+ds-2,ws-1,Scheduled,Completed,2026-11-23T18:00:00Z,621.478773461426
+ds-2,ws-1,Scheduled,Completed,2026-11-22T05:00:00Z,332.4043880659418
+ds-2,ws-1,Scheduled,Completed,2026-11-22T12:00:00Z,553.5396003535736
+ds-2,ws-1,Scheduled,Completed,2026-11-22T18:00:00Z,741.3122933374146
+ds-2,ws-1,Scheduled,Completed,2026-11-21T05:00:00Z,573.4369792690347
+ds-2,ws-1,Scheduled,Completed,2026-11-21T12:00:00Z,334.61917762584056
+ds-2,ws-1,Scheduled,Completed,2026-11-21T18:00:00Z,494.82105693044866
+ds-2,ws-1,Scheduled,Completed,2026-11-20T05:00:00Z,781.4722826357963
+ds-2,ws-1,Scheduled,Completed,2026-11-20T12:00:00Z,611.1950520853607
+ds-2,ws-1,Scheduled,Completed,2026-11-20T18:00:00Z,710.2198019621958
+ds-2,ws-1,Scheduled,Completed,2026-11-19T05:00:00Z,876.3025149848273
+ds-2,ws-1,Scheduled,Completed,2026-11-19T12:00:00Z,432.15194607230706
+ds-2,ws-1,Scheduled,Completed,2026-11-19T18:00:00Z,766.6566077581492
+ds-2,ws-1,Scheduled,Completed,2026-11-18T05:00:00Z,633.7764638280012
+ds-2,ws-1,Scheduled,Completed,2026-11-18T12:00:00Z,410.2370324774195
+ds-2,ws-1,Scheduled,Completed,2026-11-18T18:00:00Z,485.2029828501984
+ds-2,ws-1,Scheduled,Completed,2026-11-17T05:00:00Z,316.18512075539246
+ds-2,ws-1,Scheduled,Completed,2026-11-17T12:00:00Z,487.40976464879435
+ds-2,ws-1,Scheduled,Failed,2026-11-17T18:00:00Z,492.67738037373795
+ds-2,ws-1,Scheduled,Completed,2026-11-16T05:00:00Z,308.7636641514378
+ds-2,ws-1,Scheduled,Completed,2026-11-16T12:00:00Z,780.1841099516978
+ds-2,ws-1,Scheduled,Completed,2026-11-16T18:00:00Z,546.3210825684154
+ds-2,ws-1,Scheduled,Completed,2026-11-15T05:00:00Z,338.15980032642557
+ds-2,ws-1,Scheduled,Completed,2026-11-15T12:00:00Z,795.5771341377875
+ds-2,ws-1,Scheduled,Completed,2026-11-15T18:00:00Z,417.0434380925738
+ds-2,ws-1,Scheduled,Completed,2026-11-14T05:00:00Z,758.3573721718817
+ds-2,ws-1,Scheduled,Completed,2026-11-14T12:00:00Z,699.4732484609001
+ds-2,ws-1,Scheduled,Completed,2026-11-14T18:00:00Z,613.0071835589036
+ds-2,ws-1,Scheduled,Failed,2026-11-13T05:00:00Z,561.8178275732544
+ds-2,ws-1,Scheduled,Completed,2026-11-13T12:00:00Z,717.0648183678531
+ds-2,ws-1,Scheduled,Completed,2026-11-13T18:00:00Z,647.8717982895944
+ds-2,ws-1,Scheduled,Completed,2026-11-12T05:00:00Z,472.25835263299854
+ds-2,ws-1,Scheduled,Completed,2026-11-12T12:00:00Z,797.004243822126
+ds-2,ws-1,Scheduled,Completed,2026-11-12T18:00:00Z,797.0913789484558
+ds-2,ws-1,Scheduled,Completed,2026-11-11T05:00:00Z,380.8103838614449
+ds-2,ws-1,Scheduled,Completed,2026-11-11T12:00:00Z,855.4348658280313
+ds-2,ws-1,Scheduled,Completed,2026-11-11T18:00:00Z,491.4534750578752
+ds-3,ws-2,Scheduled,Completed,2026-11-24T05:00:00Z,379.9026623626729
+ds-3,ws-2,Scheduled,Completed,2026-11-24T12:00:00Z,878.1091759044892
+ds-3,ws-2,Scheduled,Completed,2026-11-24T18:00:00Z,394.9538656462493
+ds-3,ws-2,Scheduled,Completed,2026-11-23T05:00:00Z,603.8780651015356
+ds-3,ws-2,Scheduled,Completed,2026-11-23T12:00:00Z,475.49969713808355
+ds-3,ws-2,Scheduled,Completed,2026-11-23T18:00:00Z,689.1935277103391
+ds-3,ws-2,Scheduled,Completed,2026-11-22T05:00:00Z,705.7380723781316
+ds-3,ws-2,Scheduled,Completed,2026-11-22T12:00:00Z,856.6541998743492
+ds-3,ws-2,Scheduled,Completed,2026-11-22T18:00:00Z,705.3568412900722
+ds-3,ws-2,Scheduled,Completed,2026-11-21T05:00:00Z,667.745349361564
+ds-3,ws-2,Scheduled,Completed,2026-11-21T12:00:00Z,576.7239660242352
+ds-3,ws-2,Scheduled,Failed,2026-11-21T18:00:00Z,843.2592081654007
+ds-3,ws-2,Scheduled,Completed,2026-11-20T05:00:00Z,514.3092170800644
+ds-3,ws-2,Scheduled,Completed,2026-11-20T12:00:00Z,771.1141836799486
+ds-3,ws-2,Scheduled,Completed,2026-11-20T18:00:00Z,418.81971168747503
+ds-3,ws-2,Scheduled,Completed,2026-11-19T05:00:00Z,376.3976056908496
+ds-3,ws-2,Scheduled,Completed,2026-11-19T12:00:00Z,716.7714101669985
+ds-3,ws-2,Scheduled,Completed,2026-11-19T18:00:00Z,314.8504497261711
+ds-3,ws-2,Scheduled,Completed,2026-11-18T05:00:00Z,547.5791704237573
+ds-3,ws-2,Scheduled,Completed,2026-11-18T12:00:00Z,599.4807407560007
+ds-3,ws-2,Scheduled,Completed,2026-11-18T18:00:00Z,690.1288729541989
+ds-3,ws-2,Scheduled,Completed,2026-11-17T05:00:00Z,664.042832808191
+ds-3,ws-2,Scheduled,Completed,2026-11-17T12:00:00Z,560.7771542623036
+ds-3,ws-2,Scheduled,Completed,2026-11-17T18:00:00Z,799.5346215526882
+ds-3,ws-2,Scheduled,Completed,2026-11-16T05:00:00Z,316.8428147035599
+ds-3,ws-2,Scheduled,Completed,2026-11-16T12:00:00Z,324.5665793958683
+ds-3,ws-2,Scheduled,Completed,2026-11-16T18:00:00Z,441.78300370650635
+ds-3,ws-2,Scheduled,Completed,2026-11-15T05:00:00Z,440.2437352706211
+ds-3,ws-2,Scheduled,Completed,2026-11-15T12:00:00Z,794.7837745698787
+ds-3,ws-2,Scheduled,Completed,2026-11-15T18:00:00Z,492.3765709856055
+ds-3,ws-2,Scheduled,Completed,2026-11-14T05:00:00Z,329.007641856319
+ds-3,ws-2,Scheduled,Completed,2026-11-14T12:00:00Z,307.9586050404931
+ds-3,ws-2,Scheduled,Completed,2026-11-14T18:00:00Z,359.5200692858656
+ds-3,ws-2,Scheduled,Completed,2026-11-13T05:00:00Z,573.3040853780442
+ds-3,ws-2,Scheduled,Completed,2026-11-13T12:00:00Z,690.5226261423041
+ds-3,ws-2,Scheduled,Failed,2026-11-13T18:00:00Z,745.665574868697
+ds-3,ws-2,Scheduled,Completed,2026-11-12T05:00:00Z,850.6616298031194
+ds-3,ws-2,Scheduled,Completed,2026-11-12T12:00:00Z,567.0671931572293
+ds-3,ws-2,Scheduled,Completed,2026-11-12T18:00:00Z,801.7207869160304
+ds-3,ws-2,Scheduled,Completed,2026-11-11T05:00:00Z,332.55378220240414
+ds-3,ws-2,Scheduled,Completed,2026-11-11T12:00:00Z,477.7339622626545
+ds-3,ws-2,Scheduled,Completed,2026-11-11T18:00:00Z,642.1073670301017
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-24T05:00:00Z,762.8718211918108
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-24T12:00:00Z,446.00277183452147
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-24T18:00:00Z,576.7377319983036
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-23T05:00:00Z,872.7212534268388
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-23T12:00:00Z,692.3385655936237
+offline:Indicadores Diretoria,,Scheduled,Failed,2026-11-23T18:00:00Z,799.8340851311385
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-22T05:00:00Z,355.46977994921565
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-22T12:00:00Z,727.0266482484606
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-22T18:00:00Z,437.5993105031385
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-21T05:00:00Z,641.6816636026776
+offline:Indicadores Diretoria,,Scheduled,Failed,2026-11-21T12:00:00Z,784.8568891718594
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-21T18:00:00Z,594.8075011166848
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-20T05:00:00Z,593.672053692777
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-20T12:00:00Z,496.4195262995187
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-20T18:00:00Z,394.43870804402934
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-19T05:00:00Z,856.6797917565536
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-19T12:00:00Z,774.1570861263015
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-19T18:00:00Z,382.89640681690025
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-18T05:00:00Z,746.9176530049795
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-18T12:00:00Z,537.4519379153177
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-18T18:00:00Z,464.62378630856887
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-17T05:00:00Z,759.5537803698796
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-17T12:00:00Z,598.2249487664651
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-17T18:00:00Z,533.5701316309128
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-16T05:00:00Z,719.4488670697662
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-16T12:00:00Z,414.67930723129456
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-16T18:00:00Z,411.5079683011277
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-15T05:00:00Z,765.178424587689
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-15T12:00:00Z,465.29144537971206
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-15T18:00:00Z,427.5621948628062
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-14T05:00:00Z,573.8220442767388
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-14T12:00:00Z,652.3062723212788
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-14T18:00:00Z,371.35135135490924
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-13T05:00:00Z,772.7557549302077
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-13T12:00:00Z,649.8841240485688
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-13T18:00:00Z,707.4994875049083
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-12T05:00:00Z,434.0188852161272
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-12T12:00:00Z,619.0862835799446
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-12T18:00:00Z,525.7617873561544
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-11T05:00:00Z,848.513309217353
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-11T12:00:00Z,884.004229112923
+offline:Indicadores Diretoria,,Scheduled,Completed,2026-11-11T18:00:00Z,870.4246218526476
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-24T05:00:00Z,320.80140654780575
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-24T12:00:00Z,464.048745735097
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-24T18:00:00Z,869.6065391365445
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-23T05:00:00Z,749.3976109001246
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-23T12:00:00Z,629.2400886851625
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-23T18:00:00Z,400.1885566659415
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-22T05:00:00Z,840.5472681299908
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-22T12:00:00Z,373.89731345273975
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-22T18:00:00Z,632.0448972373372
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-21T05:00:00Z,633.2871673009304
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-21T12:00:00Z,855.6324220209943
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-21T18:00:00Z,303.70887789031934
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-20T05:00:00Z,732.9718857523526
+offline:Painel Assistencial,,Scheduled,Failed,2026-11-20T12:00:00Z,800.9556440268454
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-20T18:00:00Z,604.0903295436929
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-19T05:00:00Z,460.60194214830597
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-19T12:00:00Z,716.9005278371362
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-19T18:00:00Z,395.9331362252361
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-18T05:00:00Z,311.95257037874444
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-18T12:00:00Z,317.3142350509754
+offline:Painel Assistencial,,Scheduled,Failed,2026-11-18T18:00:00Z,561.9147923914196
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-17T05:00:00Z,611.3845119736902
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-17T12:00:00Z,862.5924344853734
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-17T18:00:00Z,545.39689328645
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-16T05:00:00Z,511.21054331879515
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-16T12:00:00Z,834.4700608643838
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-16T18:00:00Z,847.750786627906
+offline:Painel Assistencial,,Scheduled,Failed,2026-11-15T05:00:00Z,650.1078643530623
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-15T12:00:00Z,630.8944618721163
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-15T18:00:00Z,830.6959681779653
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-14T05:00:00Z,663.9972245494899
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-14T12:00:00Z,344.49663979350885
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-14T18:00:00Z,496.60007987211156
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-13T05:00:00Z,886.4642753399272
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-13T12:00:00Z,649.2706651726487
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-13T18:00:00Z,750.9982618763759
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-12T05:00:00Z,349.9836630189682
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-12T12:00:00Z,454.39314266022257
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-12T18:00:00Z,818.8499766465948
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-11T05:00:00Z,707.1823648487973
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-11T12:00:00Z,568.2752267637193
+offline:Painel Assistencial,,Scheduled,Completed,2026-11-11T18:00:00Z,377.3397074244475

@@ -1,0 +1,389 @@
+{
+  "score": 73.0,
+  "level": "Prontidão moderada",
+  "evidence_coverage_pct": 100.0,
+  "dimensions": {
+    "data_volume": {
+      "score": 80,
+      "evidence": "BigQuery TABLE_STORAGE",
+      "inputs": {
+        "logical_TB": 42.093,
+        "long_term_share": 0.67
+      },
+      "rule": "<10TB=90; <100=75; <500=60; <1PB=45; senão 30; +5 se >60% long-term",
+      "weight": 15,
+      "effective_weight": 0.15
+    },
+    "sql_complexity": {
+      "score": 84,
+      "evidence": "554 objetos SQL (features)",
+      "inputs": {
+        "objects": 554,
+        "pct_high": 20.4,
+        "pct_medium": 8.5,
+        "requires_refactor": 4
+      },
+      "rule": "100 − 60×%Alta/MuitoAlta − 25×%Média − min(20; 0,5×objetos que exigem refatoração)",
+      "weight": 20,
+      "effective_weight": 0.2
+    },
+    "pipeline_complexity": {
+      "score": 85,
+      "evidence": "53 pipelines",
+      "inputs": {
+        "pipelines": 53,
+        "pct_high": 3.8,
+        "pct_streaming": 13.2,
+        "external_dependencies": 4,
+        "unstable": 4
+      },
+      "rule": "100 − 50×%Alta − 20×%streaming − min(15; 1,5×dependências externas) − min(10; instáveis)",
+      "weight": 20,
+      "effective_weight": 0.2
+    },
+    "bi_coupling": {
+      "score": 79,
+      "evidence": "6 semantic models (offline (demo) + refresh/atividade sintéticos)",
+      "inputs": {
+        "models": 6,
+        "pct_native_sql": 16.7,
+        "pct_heavy_power_query": 16.7,
+        "pct_dynamic_rls": 16.7,
+        "pct_import": 83.3
+      },
+      "rule": "100 − 30×%SQL nativo − 30×%Power Query pesado − 15×%RLS dinâmico − 10×%Import",
+      "weight": 15,
+      "effective_weight": 0.15
+    },
+    "platform_specific_features": {
+      "score": 80,
+      "evidence": "rotinas, SQL e serviços em uso",
+      "inputs": {
+        "weighted_feature_points": 20,
+        "bi_engine": true,
+        "specific_services_in_use": [
+          "vertex"
+        ]
+      },
+      "rule": "100 − min(70; 3×UDF não-SQL + 3×remote + 2×BQML + wildcard + 2×SQL dinâmico + 5×serviço específico + 5×BI Engine)",
+      "weight": 15,
+      "effective_weight": 0.15
+    },
+    "security_governance": {
+      "score": 22,
+      "evidence": "IAM, ACLs, policy tags, RLS, nomes de colunas",
+      "inputs": {
+        "distinct_high_finding_types": 4,
+        "distinct_medium_finding_types": 7,
+        "policy_tag_columns": 25,
+        "row_policies_tables": 1,
+        "sensitive_name_columns": 853
+      },
+      "rule": "100 − 8×tipos de achado Alta − 3×tipos Média (achados repetidos por projeto contam 1×) − 10 se policy tags − 5 se RLS − 10 se colunas sensíveis (mapear para Unity Catalog)",
+      "weight": 15,
+      "effective_weight": 0.15
+    }
+  },
+  "weights": {
+    "data_volume": 15,
+    "sql_complexity": 20,
+    "pipeline_complexity": 20,
+    "bi_coupling": 15,
+    "platform_specific_features": 15,
+    "security_governance": 15
+  },
+  "components": [
+    {
+      "component": "BigQuery",
+      "status": "Em uso (evidência)",
+      "target_hypothesis": "Databricks SQL + Delta Lake / Unity Catalog",
+      "complexity": "Alta",
+      "lift_and_shift": "Exportar tabelas para Parquet/Delta (EXPORT DATA ou leitura via conector Spark BigQuery / Lakehouse Federation) e recriar no Unity Catalog",
+      "modernization": "Medallion em Delta Lake com Liquid Clustering, SQL traduzido (SQLGlot/BladeBridge/Lakebridge), Databricks SQL serverless",
+      "risks": "Dialeto SQL (SAFE_*, ARRAY/STRUCT, QUALIFY já suportado, funções de data), semântica de particionamento e wildcard tables",
+      "coexistence": "Lakehouse Federation para BigQuery durante a transição",
+      "wave": "Onda 1 (POC) → Onda 2"
+    },
+    {
+      "component": "BigLake",
+      "status": "Provisionado sem evidência de uso",
+      "target_hypothesis": "External Locations + tabelas Delta/Iceberg no Unity Catalog",
+      "complexity": "Baixa",
+      "lift_and_shift": "Tabelas externas no Unity Catalog sobre os mesmos URIs",
+      "modernization": "Tabelas Delta gerenciadas ou Iceberg via UniForm",
+      "risks": "Conexões e permissões de BigLake",
+      "coexistence": "Federation / leitura direta",
+      "wave": "Onda 2"
+    },
+    {
+      "component": "Google Cloud Storage",
+      "status": "Em uso (evidência)",
+      "target_hypothesis": "External Locations / Volumes / Delta Lake",
+      "complexity": "Baixa",
+      "lift_and_shift": "External Locations + tabelas externas/Volumes no Unity Catalog sobre os mesmos buckets",
+      "modernization": "Conversão para Delta/Iceberg gerenciado; compactação de small files; Auto Loader para ingestão",
+      "risks": "Small files, formatos heterogêneos, políticas de lifecycle",
+      "coexistence": "Leitura direta dos buckets existentes",
+      "wave": "Onda 0 (fundação)"
+    },
+    {
+      "component": "Cloud Composer / Airflow",
+      "status": "Em uso (evidência)",
+      "target_hypothesis": "Lakeflow Jobs",
+      "complexity": "Média",
+      "lift_and_shift": "Manter Airflow chamando Databricks (operadores Databricks) na fase inicial",
+      "modernization": "Lakeflow Jobs (tarefas, dependências, gatilhos por arquivo/tabela)",
+      "risks": "Operadores GCP-específicos, sensores, XCom",
+      "coexistence": "Airflow orquestrando jobs Databricks",
+      "wave": "Onda 3"
+    },
+    {
+      "component": "Dataflow",
+      "status": "Em uso (evidência)",
+      "target_hypothesis": "Lakeflow Spark Declarative Pipelines / Structured Streaming",
+      "complexity": "Alta",
+      "lift_and_shift": "Reescrever pipelines Beam em Spark",
+      "modernization": "Structured Streaming / Spark Declarative Pipelines; Auto Loader",
+      "risks": "Semântica de janelas/watermarks, conectores Beam específicos",
+      "coexistence": "Dataflow gravando em GCS lido pelo Databricks",
+      "wave": "Onda 4"
+    },
+    {
+      "component": "Dataproc",
+      "status": "Em uso (evidência)",
+      "target_hypothesis": "Databricks Compute (Jobs / serverless)",
+      "complexity": "Média",
+      "lift_and_shift": "Migrar jobs Spark com ajustes mínimos para Databricks Compute (Jobs)",
+      "modernization": "Serverless jobs, Photon, Delta",
+      "risks": "Dependências Hadoop/Hive, init actions",
+      "coexistence": "Leitura dos mesmos dados no GCS",
+      "wave": "Onda 3"
+    },
+    {
+      "component": "Dataform",
+      "status": "Em uso (evidência)",
+      "target_hypothesis": "Lakeflow Jobs + Spark Declarative Pipelines (ou dbt)",
+      "complexity": "Média",
+      "lift_and_shift": "Converter SQLX em notebooks/arquivos SQL orquestrados por Lakeflow Jobs",
+      "modernization": "Lakeflow Spark Declarative Pipelines (MVs/streaming tables) ou dbt",
+      "risks": "Macros JavaScript, assertions, incrementais",
+      "coexistence": "Executar em paralelo até validação de paridade",
+      "wave": "Onda 2"
+    },
+    {
+      "component": "Pub/Sub",
+      "status": "Em uso (evidência)",
+      "target_hypothesis": "Structured Streaming (conector Pub/Sub) / Zerobus",
+      "complexity": "Média",
+      "lift_and_shift": "Conector Pub/Sub do Structured Streaming",
+      "modernization": "Streaming tables (Spark Declarative Pipelines); Zerobus Ingest onde disponível",
+      "risks": "Exactly-once, ordering keys",
+      "coexistence": "Manter Pub/Sub como barramento",
+      "wave": "Onda 4"
+    },
+    {
+      "component": "Datastream",
+      "status": "Em uso (evidência)",
+      "target_hypothesis": "Lakeflow Connect (CDC) ou mecanismo CDC compatível",
+      "complexity": "Média",
+      "lift_and_shift": "Manter Datastream gravando em GCS e consumir com Auto Loader",
+      "modernization": "Lakeflow Connect (CDC gerenciado) onde disponível na região",
+      "risks": "Disponibilidade regional do Lakeflow Connect; ordenação/deduplicação CDC",
+      "coexistence": "Datastream -> GCS -> Delta (APPLY CHANGES)",
+      "wave": "Onda 4"
+    },
+    {
+      "component": "Cloud SQL",
+      "status": "Em uso (evidência)",
+      "target_hypothesis": "Fonte (Lakeflow Connect / Federation) ou Lakebase",
+      "complexity": "A avaliar",
+      "lift_and_shift": "Fonte: Lakeflow Connect / Lakehouse Federation",
+      "modernization": "Lakebase para cargas OLTP associadas a dados analíticos",
+      "risks": "CDC (binlog/logical decoding)",
+      "coexistence": "Permanece como fonte",
+      "wave": "Avaliar"
+    },
+    {
+      "component": "Cloud Functions / Cloud Run functions",
+      "status": "Em uso (evidência)",
+      "target_hypothesis": "Lakeflow Jobs (tarefas Python) / Databricks Apps",
+      "complexity": "Média",
+      "lift_and_shift": "Tarefas Python em Lakeflow Jobs",
+      "modernization": "Jobs serverless / Databricks Apps",
+      "risks": "Gatilhos orientados a eventos",
+      "coexistence": "Manter funções para eventos",
+      "wave": "Avaliar"
+    },
+    {
+      "component": "Cloud Run",
+      "status": "Em uso (evidência)",
+      "target_hypothesis": "Databricks Apps / Lakeflow Jobs",
+      "complexity": "A avaliar",
+      "lift_and_shift": "Avaliar caso a caso",
+      "modernization": "Databricks Apps / Model Serving",
+      "risks": "Serviços operacionais fora do escopo de dados",
+      "coexistence": "Manter",
+      "wave": "Avaliar"
+    },
+    {
+      "component": "Compute Engine",
+      "status": "Em uso (evidência)",
+      "target_hypothesis": "Avaliar caso a caso (gateways, ETL legado, ferramentas)",
+      "complexity": "A avaliar",
+      "lift_and_shift": "Avaliar finalidade das VMs (gateways PBI, ETL legado)",
+      "modernization": "Caso a caso",
+      "risks": "Dependências ocultas",
+      "coexistence": "Manter",
+      "wave": "Avaliar"
+    },
+    {
+      "component": "Vertex AI",
+      "status": "Em uso (evidência)",
+      "target_hypothesis": "Mosaic AI, MLflow e Model Serving",
+      "complexity": "Alta",
+      "lift_and_shift": "Registrar modelos no MLflow / Unity Catalog",
+      "modernization": "Mosaic AI (treino, Feature Engineering, Model Serving, Agent Bricks)",
+      "risks": "Disponibilidade regional de Model Serving/FMAPI",
+      "coexistence": "Vertex consumindo Delta via conector",
+      "wave": "Onda 4"
+    },
+    {
+      "component": "Dataplex",
+      "status": "Provisionado sem evidência de uso",
+      "target_hypothesis": "Unity Catalog (governança, lineage, data quality)",
+      "complexity": "A avaliar",
+      "lift_and_shift": "Mapear policy tags, glossário e data quality para Unity Catalog",
+      "modernization": "Unity Catalog (tags, ABAC, column masks, row filters, lineage, Data Quality Monitoring)",
+      "risks": "Taxonomias e regras DQ",
+      "coexistence": "Catálogos em paralelo",
+      "wave": "Onda 0 (fundação)"
+    },
+    {
+      "component": "Cloud Scheduler",
+      "status": "Em uso (evidência)",
+      "target_hypothesis": "Gatilhos/agendamentos de Lakeflow Jobs",
+      "complexity": "Baixa",
+      "lift_and_shift": "Gatilhos agendados de Lakeflow Jobs",
+      "modernization": "Gatilhos por chegada de arquivo/atualização de tabela",
+      "risks": "Alvos HTTP diversos",
+      "coexistence": "Scheduler chamando Jobs API",
+      "wave": "Onda 3"
+    },
+    {
+      "component": "Workflows",
+      "status": "Em uso (evidência)",
+      "target_hypothesis": "Lakeflow Jobs (orquestração)",
+      "complexity": "Média",
+      "lift_and_shift": "Lakeflow Jobs (tarefas condicionais/for-each)",
+      "modernization": "Lakeflow Jobs",
+      "risks": "Conectores Workflows para APIs GCP",
+      "coexistence": "Workflows chamando Jobs API",
+      "wave": "Onda 3"
+    },
+    {
+      "component": "Microsoft Power BI",
+      "status": "Em uso (evidência)",
+      "target_hypothesis": "Power BI + Databricks SQL; AI/BI/Genie seletivo",
+      "complexity": "Média",
+      "lift_and_shift": "Power BI conectado ao Databricks SQL (DirectQuery/Import) com semantic models reapontados",
+      "modernization": "Camada gold + metric views; AI/BI Dashboards e Genie para relatórios selecionados; Publish to Power BI",
+      "risks": "Power Query com transformações pesadas, SQL nativo BigQuery, RLS dinâmico",
+      "coexistence": "Reapontar modelo a modelo",
+      "wave": "Onda 1 (POC) e Onda 3"
+    }
+  ],
+  "regions": {
+    "available": true,
+    "snapshot_date": "2026-11-25",
+    "sources": [
+      "https://docs.databricks.com/gcp/en/resources/supported-regions",
+      "https://docs.databricks.com/gcp/en/resources/feature-region-support"
+    ],
+    "regions": [
+      {
+        "gcp_location": "US",
+        "databricks_region": "us-central1",
+        "supported": true,
+        "missing_features": [],
+        "cross_geo_only": [],
+        "location": "Iowa, US"
+      },
+      {
+        "gcp_location": "US",
+        "databricks_region": "us-east1",
+        "supported": true,
+        "missing_features": [],
+        "cross_geo_only": [],
+        "location": "South Carolina, US"
+      },
+      {
+        "gcp_location": "US",
+        "databricks_region": "us-east4",
+        "supported": true,
+        "missing_features": [],
+        "cross_geo_only": [],
+        "location": "Virginia, US"
+      },
+      {
+        "gcp_location": "US",
+        "databricks_region": "us-west1",
+        "supported": true,
+        "missing_features": [],
+        "cross_geo_only": [],
+        "location": "Oregon, US"
+      },
+      {
+        "gcp_location": "southamerica-east1",
+        "databricks_region": "southamerica-east1",
+        "supported": true,
+        "missing_features": [
+          "databricks_apps",
+          "lakebase",
+          "lakeflow_connect_managed",
+          "zerobus_ingest",
+          "ai_search",
+          "data_quality_monitoring",
+          "custom_agents_eval",
+          "knowledge_assistant",
+          "supervisor_agent",
+          "ai_query_batch",
+          "ai_parse_document_v2",
+          "model_serving_cpu",
+          "model_serving_gpu",
+          "external_models",
+          "fmapi_provisioned",
+          "fmapi_pay_per_token"
+        ],
+        "cross_geo_only": [],
+        "location": "São Paulo, Brazil"
+      }
+    ]
+  },
+  "waves": [
+    {
+      "wave": "Onda 0 — Fundação",
+      "scope": "Workspace(s), Unity Catalog, rede privada, identidades, External Locations sobre GCS, governança (tags/masks)"
+    },
+    {
+      "wave": "Onda 1 — POC / caso de uso",
+      "scope": "Caso de uso selecionado (item 20): tabelas, pipelines e modelo Power BI em DirectQuery + AI/BI/Genie"
+    },
+    {
+      "wave": "Onda 2 — Data Warehouse",
+      "scope": "Datasets por ordem de dependência (lineage), começando pelos de menor complexidade; Federation para coexistência"
+    },
+    {
+      "wave": "Onda 3 — Pipelines e BI",
+      "scope": "Dataform/scheduled queries/Composer -> Lakeflow; reapontar semantic models"
+    },
+    {
+      "wave": "Onda 4 — Streaming, CDC e ML",
+      "scope": "Datastream/Pub/Sub/Dataflow -> Lakeflow Connect/Structured Streaming; Vertex -> Mosaic AI"
+    },
+    {
+      "wave": "Onda 5 — Descomissionamento",
+      "scope": "Validação de paridade, corte, desligamento e FinOps pós-migração"
+    }
+  ],
+  "methodology": "Média ponderada das dimensões com evidência; dimensões sem evidência excluídas e pesos renormalizados."
+}

@@ -1,0 +1,247 @@
+[
+  {
+    "name": "Faturamento Hospitalar",
+    "seeds": [
+      "pbi_model:ds-0"
+    ],
+    "seeds_not_found": [],
+    "direction": "both",
+    "tables": 14,
+    "views": 0,
+    "routines_in_same_datasets": 4,
+    "pipelines": 1,
+    "semantic_models": 1,
+    "reports": 2,
+    "nodes": 20,
+    "edges": 48,
+    "logical_bytes": 151774114929,
+    "logical_GiB": 141.35,
+    "pipeline_runs_per_day": 4,
+    "chain_duration_s_sum": 2509.0,
+    "critical_path": [
+      "Fonte externa: sftp:parceiros",
+      "Cloud Composer (Airflow): dag_dw_faturamento",
+      "rx-dados-prd.dw_faturamento.faturamento_depara",
+      "Modelo: Faturamento Hospitalar",
+      "Relatório: Faturamento Mensal"
+    ],
+    "worst_sql_complexity": "Alta",
+    "attributable": {
+      "slot_hours_window": 6178.2,
+      "bytes_billed_window": 36226730468702,
+      "estimated_on_demand_month": 68.64,
+      "note": "Atribuição por fingerprints que referenciam ao menos uma tabela do caso de uso (consultas que também tocam outras tabelas contam integralmente)."
+    },
+    "share_of_platform": {
+      "storage_pct": 0.36,
+      "storage_denominator": "volume lógico total BASE TABLE + MATERIALIZED VIEW",
+      "processing_pct": 5.12,
+      "processing_denominator": "slot-ms das top fingerprints coletadas (não do total da plataforma)",
+      "objects_pct": 3.24,
+      "objects_denominator": "tabelas físicas inventariadas",
+      "pipelines_pct": 1.89,
+      "pipelines_denominator": "pipelines inventariados"
+    },
+    "migration_complexity": "Alta",
+    "storage_mode": "Import (inferido: targetStorageMode=Abf)",
+    "report_views": 3757,
+    "poc_fit_score": 9.8,
+    "rationale": "Menor complexidade SQL, volume moderado, poucos pipelines e uso relevante pontuam melhor."
+  },
+  {
+    "name": "Ocupação de Leitos",
+    "seeds": [
+      "pbi_model:ds-1"
+    ],
+    "seeds_not_found": [],
+    "direction": "both",
+    "tables": 12,
+    "views": 0,
+    "routines_in_same_datasets": 4,
+    "pipelines": 1,
+    "semantic_models": 1,
+    "reports": 2,
+    "nodes": 18,
+    "edges": 35,
+    "logical_bytes": 140641982900,
+    "logical_GiB": 130.98,
+    "pipeline_runs_per_day": 4,
+    "chain_duration_s_sum": 2509.0,
+    "critical_path": [
+      "Fonte externa: sftp:parceiros",
+      "Cloud Composer (Airflow): dag_dw_faturamento",
+      "rx-dados-prd.dw_faturamento.faturamento_evento",
+      "Modelo: Ocupação de Leitos",
+      "Relatório: Faturamento Mensal - v2"
+    ],
+    "worst_sql_complexity": "Alta",
+    "attributable": {
+      "slot_hours_window": 6174.01,
+      "bytes_billed_window": 36214736337234,
+      "estimated_on_demand_month": 68.62,
+      "note": "Atribuição por fingerprints que referenciam ao menos uma tabela do caso de uso (consultas que também tocam outras tabelas contam integralmente)."
+    },
+    "share_of_platform": {
+      "storage_pct": 0.33,
+      "storage_denominator": "volume lógico total BASE TABLE + MATERIALIZED VIEW",
+      "processing_pct": 5.11,
+      "processing_denominator": "slot-ms das top fingerprints coletadas (não do total da plataforma)",
+      "objects_pct": 2.78,
+      "objects_denominator": "tabelas físicas inventariadas",
+      "pipelines_pct": 1.89,
+      "pipelines_denominator": "pipelines inventariados"
+    },
+    "migration_complexity": "Alta",
+    "storage_mode": "Import (inferido: targetStorageMode=Abf)",
+    "report_views": 3681,
+    "poc_fit_score": 9.8,
+    "rationale": "Menor complexidade SQL, volume moderado, poucos pipelines e uso relevante pontuam melhor."
+  },
+  {
+    "name": "Glosas e Convênios",
+    "seeds": [
+      "pbi_model:ds-2"
+    ],
+    "seeds_not_found": [],
+    "direction": "both",
+    "tables": 11,
+    "views": 0,
+    "routines_in_same_datasets": 4,
+    "pipelines": 1,
+    "semantic_models": 1,
+    "reports": 2,
+    "nodes": 16,
+    "edges": 20,
+    "logical_bytes": 108109160460,
+    "logical_GiB": 100.68,
+    "pipeline_runs_per_day": 4,
+    "chain_duration_s_sum": 2509.0,
+    "critical_path": [
+      "Fonte externa: sftp:parceiros",
+      "Cloud Composer (Airflow): dag_dw_faturamento",
+      "rx-dados-prd.dw_faturamento.faturamento_log",
+      "Modelo: Glosas e Convênios",
+      "Relatório: Painel Executivo"
+    ],
+    "worst_sql_complexity": "Alta",
+    "attributable": {
+      "slot_hours_window": 1162.52,
+      "bytes_billed_window": 3672355786643,
+      "estimated_on_demand_month": 6.96,
+      "note": "Atribuição por fingerprints que referenciam ao menos uma tabela do caso de uso (consultas que também tocam outras tabelas contam integralmente)."
+    },
+    "share_of_platform": {
+      "storage_pct": 0.26,
+      "storage_denominator": "volume lógico total BASE TABLE + MATERIALIZED VIEW",
+      "processing_pct": 0.96,
+      "processing_denominator": "slot-ms das top fingerprints coletadas (não do total da plataforma)",
+      "objects_pct": 2.55,
+      "objects_denominator": "tabelas físicas inventariadas",
+      "pipelines_pct": 1.89,
+      "pipelines_denominator": "pipelines inventariados"
+    },
+    "migration_complexity": "Alta",
+    "storage_mode": "Import (inferido: targetStorageMode=Abf)",
+    "report_views": 4320,
+    "poc_fit_score": 9.8,
+    "rationale": "Menor complexidade SQL, volume moderado, poucos pipelines e uso relevante pontuam melhor."
+  },
+  {
+    "name": "Painel Assistencial",
+    "seeds": [
+      "pbi_model:offline:Painel Assistencial"
+    ],
+    "seeds_not_found": [],
+    "direction": "both",
+    "tables": 15,
+    "views": 0,
+    "routines_in_same_datasets": 4,
+    "pipelines": 2,
+    "semantic_models": 1,
+    "reports": 1,
+    "nodes": 21,
+    "edges": 47,
+    "logical_bytes": 342190646585,
+    "logical_GiB": 318.69,
+    "pipeline_runs_per_day": 28,
+    "chain_duration_s_sum": 4658.0,
+    "critical_path": [
+      "rx-ingestao-prd.landing_oracle.oracle_atendimento",
+      "rx-dados-prd.stg_assistencial.assistencial_atendimento",
+      "rx-dados-prd.dw_assistencial.assistencial_fato_atendimento",
+      "Modelo: Painel Assistencial",
+      "Relatório: Painel Assistencial"
+    ],
+    "worst_sql_complexity": "Alta",
+    "attributable": {
+      "slot_hours_window": 32582.44,
+      "bytes_billed_window": 123108144561134,
+      "estimated_on_demand_month": 233.26,
+      "note": "Atribuição por fingerprints que referenciam ao menos uma tabela do caso de uso (consultas que também tocam outras tabelas contam integralmente)."
+    },
+    "share_of_platform": {
+      "storage_pct": 0.81,
+      "storage_denominator": "volume lógico total BASE TABLE + MATERIALIZED VIEW",
+      "processing_pct": 26.99,
+      "processing_denominator": "slot-ms das top fingerprints coletadas (não do total da plataforma)",
+      "objects_pct": 3.47,
+      "objects_denominator": "tabelas físicas inventariadas",
+      "pipelines_pct": 3.77,
+      "pipelines_denominator": "pipelines inventariados"
+    },
+    "migration_complexity": "Alta",
+    "storage_mode": "Import",
+    "report_views": 2318,
+    "poc_fit_score": 9.6,
+    "rationale": "Menor complexidade SQL, volume moderado, poucos pipelines e uso relevante pontuam melhor."
+  },
+  {
+    "name": "Painel Assistencial (cópia)",
+    "seeds": [
+      "pbi_model:ds-3"
+    ],
+    "seeds_not_found": [],
+    "direction": "both",
+    "tables": 15,
+    "views": 0,
+    "routines_in_same_datasets": 4,
+    "pipelines": 2,
+    "semantic_models": 1,
+    "reports": 1,
+    "nodes": 19,
+    "edges": 45,
+    "logical_bytes": 342190646585,
+    "logical_GiB": 318.69,
+    "pipeline_runs_per_day": 28,
+    "chain_duration_s_sum": 4658.0,
+    "critical_path": [
+      "rx-ingestao-prd.landing_oracle.oracle_atendimento",
+      "rx-dados-prd.stg_assistencial.assistencial_atendimento",
+      "rx-dados-prd.dw_assistencial.assistencial_fato_atendimento",
+      "Modelo: Painel Assistencial (cópia)",
+      "Relatório: Painel Assistencial - teste"
+    ],
+    "worst_sql_complexity": "Alta",
+    "attributable": {
+      "slot_hours_window": 32582.44,
+      "bytes_billed_window": 123108144561134,
+      "estimated_on_demand_month": 233.26,
+      "note": "Atribuição por fingerprints que referenciam ao menos uma tabela do caso de uso (consultas que também tocam outras tabelas contam integralmente)."
+    },
+    "share_of_platform": {
+      "storage_pct": 0.81,
+      "storage_denominator": "volume lógico total BASE TABLE + MATERIALIZED VIEW",
+      "processing_pct": 26.99,
+      "processing_denominator": "slot-ms das top fingerprints coletadas (não do total da plataforma)",
+      "objects_pct": 3.47,
+      "objects_denominator": "tabelas físicas inventariadas",
+      "pipelines_pct": 3.77,
+      "pipelines_denominator": "pipelines inventariados"
+    },
+    "migration_complexity": "Alta",
+    "storage_mode": "Import (inferido: targetStorageMode=Abf)",
+    "report_views": 1057,
+    "poc_fit_score": 8.71,
+    "rationale": "Menor complexidade SQL, volume moderado, poucos pipelines e uso relevante pontuam melhor."
+  }
+]

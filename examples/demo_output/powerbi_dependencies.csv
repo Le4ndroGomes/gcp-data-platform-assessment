@@ -1,0 +1,30 @@
+﻿model,model_id,dependency_type,table_ref,confidence,powerbi_principal_reads,refresh_hour_overlap,declared,report,report_id
+Faturamento Hospitalar,ds-0,bigquery_table,rx-dados-prd.dw_faturamento.faturamento_depara,high,1,0,explícita,,
+Faturamento Hospitalar,ds-0,bigquery_table,rx-dados-prd.dw_faturamento.faturamento_evento,high,1,0,explícita,,
+Faturamento Hospitalar,ds-0,bigquery_table,rx-dados-prd.dw_faturamento.faturamento_faturamento,high,1,39,explícita,,
+Faturamento Hospitalar,ds-0,bigquery_table,rx-dados-prd.dw_faturamento.faturamento_item_conta,high,1,0,explícita,,
+Faturamento Hospitalar,ds-0,bigquery_table,rx-dados-prd.dw_faturamento.faturamento_resumo,high,1,0,explícita,,
+Faturamento Hospitalar,ds-0,bigquery_table,rx-dados-prd.dw_faturamento.faturamento_unidade,high,1,0,explícita,,
+Ocupação de Leitos,ds-1,bigquery_table,rx-dados-prd.dw_faturamento.faturamento_evento,high,1,0,explícita,,
+Ocupação de Leitos,ds-1,bigquery_table,rx-dados-prd.dw_faturamento.faturamento_item_conta,high,1,0,explícita,,
+Ocupação de Leitos,ds-1,bigquery_table,rx-dados-prd.dw_faturamento.faturamento_meta,high,1,0,explícita,,
+Ocupação de Leitos,ds-1,bigquery_table,rx-dados-prd.dw_faturamento.faturamento_resumo,high,1,0,explícita,,
+Glosas e Convênios,ds-2,bigquery_table,rx-dados-prd.dw_faturamento.faturamento_guia,high,1,0,explícita,,
+Glosas e Convênios,ds-2,bigquery_table,rx-dados-prd.dw_faturamento.faturamento_integracao,high,1,0,explícita,,
+Glosas e Convênios,ds-2,bigquery_table,rx-dados-prd.dw_faturamento.faturamento_log,high,1,0,explícita,,
+Glosas e Convênios,ds-2,bigquery_table,rx-dados-prd.dw_faturamento.faturamento_meta,high,1,0,explícita,,
+Glosas e Convênios,ds-2,bigquery_table,rx-dados-prd.dw_faturamento.faturamento_rede,high,1,0,explícita,,
+Painel Assistencial (cópia),ds-3,bigquery_table,rx-dados-prd.dw_assistencial.assistencial_fato_atendimento,high,1,0,explícita,,
+Indicadores Diretoria,offline:Indicadores Diretoria,bigquery_table,rx-dados-prd.dw_faturamento.faturamento_faturamento,medium,1,39,SQL nativo,,
+Indicadores Diretoria,offline:Indicadores Diretoria,bigquery_table,rx-dados-prd.dw_faturamento.faturamento_unidade,low,1,0,SQL nativo,,
+Painel Assistencial,offline:Painel Assistencial,bigquery_table,rx-dados-prd.dw_assistencial.assistencial_fato_atendimento,high,1,0,explícita,,
+,ds-0,report,,high,,,Scanner report.datasetId,Faturamento Mensal,rp-0
+,ds-1,report,,high,,,Scanner report.datasetId,Faturamento Mensal - v2,rp-1
+,ds-2,report,,high,,,Scanner report.datasetId,Ocupação Diária,rp-2
+,ds-0,report,,high,,,Scanner report.datasetId,Glosas por Convênio,rp-3
+,ds-1,report,,high,,,Scanner report.datasetId,Faturamento Mensal (cópia),rp-4
+,ds-2,report,,high,,,Scanner report.datasetId,Painel Executivo,rp-5
+,ds-3,report,,high,,,Scanner report.datasetId,Painel Assistencial - teste,rp-9
+,offline:Painel Assistencial,report,,high,,,Scanner report.datasetId,Painel Assistencial,offline:Painel Assistencial
+Painel Assistencial,offline:Painel Assistencial,external_source,excel,high,,,conector Power Query,,
+Painel Assistencial,offline:Painel Assistencial,external_source,sharepoint,high,,,conector Power Query,,

@@ -1,0 +1,44 @@
+﻿severity,category,resource,finding,evidence,recommendation,lgpd_relevant
+Alta,Cloud Storage,rx-temp-analistas,Bucket com acesso público,allUsers,Remover acesso público e aplicar publicAccessPrevention=enforced.,True
+Alta,Credenciais,rx-ingestao-prd,1 chaves user-managed de service account (1 com > 90 dias),IAM serviceAccounts.keys (metadados),Migrar para Workload Identity / impersonação; rotacionar chaves.,False
+Alta,IAM,rx-sandbox-analytics,Papéis concedidos a allUsers/allAuthenticatedUsers,roles/bigquery.dataViewer,Remover acesso público; usar principals específicos.,True
+Alta,LGPD / dados sensíveis,210 tabelas,853 colunas com nomes indicativos de dados pessoais/saúde (828 sem policy tag),INFORMATION_SCHEMA.COLUMNS (nomes; conteúdo NÃO verificado),Validar classificação; aplicar policy tags / masking; mapear para tags e column masks no Unity Catalog.,True
+Média,Credenciais,rx-dados-hml,1 chaves user-managed de service account (0 com > 90 dias),IAM serviceAccounts.keys (metadados),Migrar para Workload Identity / impersonação; rotacionar chaves.,False
+Média,IAM,rx-dados-prd,2 usuários/grupos com papéis básicos (Owner/Editor),"roles/owner, roles/editor",Substituir por papéis predefinidos de menor privilégio.,False
+Média,IAM,rx-dados-prd,Compute default service account com roles/editor,roles/editor,Remover concessão automática (org policy iam.automaticIamGrantsForDefaultServiceAccounts).,False
+Média,IAM,rx-ingestao-prd,2 usuários/grupos com papéis básicos (Owner/Editor),"roles/owner, roles/editor",Substituir por papéis predefinidos de menor privilégio.,False
+Média,IAM,rx-ingestao-prd,Compute default service account com roles/editor,roles/editor,Remover concessão automática (org policy iam.automaticIamGrantsForDefaultServiceAccounts).,False
+Média,IAM,rx-bi-prd,2 usuários/grupos com papéis básicos (Owner/Editor),"roles/owner, roles/editor",Substituir por papéis predefinidos de menor privilégio.,False
+Média,IAM,rx-bi-prd,Compute default service account com roles/editor,roles/editor,Remover concessão automática (org policy iam.automaticIamGrantsForDefaultServiceAccounts).,False
+Média,IAM,rx-dados-hml,3 usuários/grupos com papéis básicos (Owner/Editor),"roles/owner, roles/editor",Substituir por papéis predefinidos de menor privilégio.,False
+Média,IAM,rx-dados-hml,Compute default service account com roles/editor,roles/editor,Remover concessão automática (org policy iam.automaticIamGrantsForDefaultServiceAccounts).,False
+Média,IAM,rx-dados-hml,Membros de domínios externos: 1,consultoria-exemplo.com (domínio corporativo inferido),Validar necessidade; restringir com iam.allowedPolicyMemberDomains.,True
+Média,IAM,rx-ml-dev,3 usuários/grupos com papéis básicos (Owner/Editor),"roles/owner, roles/editor",Substituir por papéis predefinidos de menor privilégio.,False
+Média,IAM,rx-ml-dev,Compute default service account com roles/editor,roles/editor,Remover concessão automática (org policy iam.automaticIamGrantsForDefaultServiceAccounts).,False
+Média,IAM,rx-ml-dev,Membros de domínios externos: 1,consultoria-exemplo.com (domínio corporativo inferido),Validar necessidade; restringir com iam.allowedPolicyMemberDomains.,True
+Média,IAM,rx-sandbox-analytics,3 usuários/grupos com papéis básicos (Owner/Editor),"roles/owner, roles/editor",Substituir por papéis predefinidos de menor privilégio.,False
+Média,IAM,rx-sandbox-analytics,Compute default service account com roles/editor,roles/editor,Remover concessão automática (org policy iam.automaticIamGrantsForDefaultServiceAccounts).,False
+Média,IAM,rx-sandbox-analytics,Membros de domínios externos: 1,consultoria-exemplo.com (domínio corporativo inferido),Validar necessidade; restringir com iam.allowedPolicyMemberDomains.,True
+Média,Rede,rx-ingestao-prd/mysql-portal-paciente,Cloud SQL com IP público habilitado,settings.ipConfiguration,Preferir IP privado / PSC; restringir authorized networks.,True
+Média,Rede,cdc-sqlserver-lab,Datastream via IP allowlist (conexão pública),connectionProfile,Usar private connectivity.,True
+Média,Residência de dados,rx-dados-hml,Sem restrição de localização de recursos (gcp.resourceLocations),Org Policy efetiva,Restringir regiões permitidas (ex.: in:southamerica-east1-locations) conforme LGPD/contratos.,True
+Média,Residência de dados,rx-ml-dev,Sem restrição de localização de recursos (gcp.resourceLocations),Org Policy efetiva,Restringir regiões permitidas (ex.: in:southamerica-east1-locations) conforme LGPD/contratos.,True
+Média,Residência de dados,rx-sandbox-analytics,Sem restrição de localização de recursos (gcp.resourceLocations),Org Policy efetiva,Restringir regiões permitidas (ex.: in:southamerica-east1-locations) conforme LGPD/contratos.,True
+Baixa,Auditoria,rx-dados-prd,Data Access logs (DATA_READ) não habilitados para Cloud Storage,auditConfigs do projeto,Avaliar habilitar DATA_READ para buckets com dados sensíveis.,True
+Baixa,Auditoria,rx-ingestao-prd,Data Access logs (DATA_READ) não habilitados para Cloud Storage,auditConfigs do projeto,Avaliar habilitar DATA_READ para buckets com dados sensíveis.,True
+Baixa,Auditoria,rx-bi-prd,Data Access logs (DATA_READ) não habilitados para Cloud Storage,auditConfigs do projeto,Avaliar habilitar DATA_READ para buckets com dados sensíveis.,True
+Baixa,Auditoria,rx-dados-hml,Data Access logs (DATA_READ) não habilitados para Cloud Storage,auditConfigs do projeto,Avaliar habilitar DATA_READ para buckets com dados sensíveis.,True
+Baixa,Auditoria,rx-ml-dev,Data Access logs (DATA_READ) não habilitados para Cloud Storage,auditConfigs do projeto,Avaliar habilitar DATA_READ para buckets com dados sensíveis.,True
+Baixa,Auditoria,rx-sandbox-analytics,Data Access logs (DATA_READ) não habilitados para Cloud Storage,auditConfigs do projeto,Avaliar habilitar DATA_READ para buckets com dados sensíveis.,True
+Baixa,Cloud Storage,3 buckets,Public access prevention não aplicado (inherited),iamConfiguration.publicAccessPrevention,Aplicar storage.publicAccessPrevention na organização.,False
+Baixa,Cloud Storage,1 buckets,ACLs fine-grained (sem uniform bucket-level access),iamConfiguration.uniformBucketLevelAccess,Habilitar uniform bucket-level access.,False
+Baixa,Credenciais,rx-dados-hml,Criação de chaves de SA não bloqueada,iam.disableServiceAccountKeyCreation,Aplicar a política e usar Workload Identity Federation.,False
+Baixa,Credenciais,rx-ml-dev,Criação de chaves de SA não bloqueada,iam.disableServiceAccountKeyCreation,Aplicar a política e usar Workload Identity Federation.,False
+Baixa,Credenciais,rx-sandbox-analytics,Criação de chaves de SA não bloqueada,iam.disableServiceAccountKeyCreation,Aplicar a política e usar Workload Identity Federation.,False
+Baixa,IAM,rx-dados-prd,Domain restricted sharing não aplicado,iam.allowedPolicyMemberDomains,Aplicar a política para restringir membros a domínios corporativos.,False
+Baixa,IAM,rx-ingestao-prd,Domain restricted sharing não aplicado,iam.allowedPolicyMemberDomains,Aplicar a política para restringir membros a domínios corporativos.,False
+Baixa,IAM,rx-bi-prd,Domain restricted sharing não aplicado,iam.allowedPolicyMemberDomains,Aplicar a política para restringir membros a domínios corporativos.,False
+Baixa,IAM,rx-dados-hml,Domain restricted sharing não aplicado,iam.allowedPolicyMemberDomains,Aplicar a política para restringir membros a domínios corporativos.,False
+Baixa,IAM,rx-ml-dev,Domain restricted sharing não aplicado,iam.allowedPolicyMemberDomains,Aplicar a política para restringir membros a domínios corporativos.,False
+Baixa,IAM,rx-sandbox-analytics,Domain restricted sharing não aplicado,iam.allowedPolicyMemberDomains,Aplicar a política para restringir membros a domínios corporativos.,False
+Info,Rede,organização,Nenhum perímetro VPC Service Controls visível,Access Context Manager (ou sem permissão),Confirmar com o time de segurança.,True

@@ -1,0 +1,13 @@
+table Metas
+	column meta
+		dataType: double
+
+	partition Metas = m
+		mode: import
+		source =
+				let
+				    Source = SharePoint.Files("https://redeexemplo.sharepoint.com/sites/bi", [ApiVersion = 15]),
+				    Arquivo = Excel.Workbook(Source{0}[Content]),
+				    Planilha = Arquivo{[Item="Metas",Kind="Sheet"]}[Data]
+				in
+				    Planilha

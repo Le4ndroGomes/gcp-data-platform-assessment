@@ -1,0 +1,395 @@
+flowchart LR
+  n0["rx-dados-prd.mart_bi.bi_painel"]
+  n1["rx-dados-prd.dw_faturamento.faturamento_faturamento"]
+  n2["rx-dados-prd.mart_bi.bi_log"]
+  n3["rx-dados-prd.stg_assistencial.assistencial_atendimento"]
+  n4["rx-dados-prd.dw_assistencial.assistencial_fato_atendimento"]
+  n5["rx-dados-prd.dw_faturamento.faturamento_item_conta"]
+  n6["rx-dados-prd.mart_bi.bi_paciente"]
+  n7["rx-dados-prd.mart_bi.bi_fornecedor"]
+  n8["rx-dados-prd.mart_bi.bi_estoque"]
+  n9["rx-dados-prd.mart_bi.bi_custo"]
+  n10["rx-dados-prd.dw_assistencial.assistencial_fato_custo"]
+  n11["rx-dados-prd.mart_bi.bi_plano"]
+  n12["rx-dados-prd.stg_assistencial.assistencial_cirurgia"]
+  n13["rx-dados-prd.stg_assistencial.assistencial_rede"]
+  n14["rx-dados-prd.stg_assistencial.assistencial_log"]
+  n15["rx-dados-prd.dw_faturamento.faturamento_meta"]
+  n16["rx-dados-prd.mart_bi.bi_autorizacao"]
+  n17["rx-dados-prd.dw_faturamento.faturamento_depara"]
+  n18["rx-dados-prd.dw_faturamento.faturamento_evento"]
+  n19["rx-dados-prd.stg_assistencial.assistencial_plano"]
+  n20["rx-dados-prd.dw_assistencial.assistencial_ocupacao"]
+  n21["rx-dados-prd.dw_assistencial.assistencial_fornecedor"]
+  n22["rx-dados-prd.dw_assistencial.assistencial_kpi"]
+  n23["rx-dados-prd.dw_faturamento.faturamento_unidade"]
+  n24["rx-dados-prd.dw_faturamento.faturamento_resumo"]
+  n25{{"Dataform: dw-saude"}}
+  n26["rx-dados-prd.stg_assistencial.assistencial_faturamento"]
+  n27["rx-dados-prd.dw_assistencial.assistencial_snapshot_diario"]
+  n28["rx-dados-prd.dw_assistencial.assistencial_convenio"]
+  n29["rx-dados-prd.dw_assistencial.assistencial_internacao"]
+  n30["rx-dados-prd.stg_assistencial.assistencial_dim_tempo"]
+  n31["rx-dados-prd.dw_faturamento.faturamento_log"]
+  n32{{"Cloud Composer (Airflow): dag_dw_faturamento"}}
+  n33["rx-dados-prd.stg_assistencial.assistencial_sessao"]
+  n34{{"Cloud Composer (Airflow): dag_stg_assistencial"}}
+  n35{{"Cloud Composer (Airflow): dag_dw_assistencial"}}
+  n36[["Modelo: Faturamento Hospitalar"]]
+  n37["rx-bi-prd.semantic_bi.bi_log"]
+  n38["rx-bi-prd.semantic_bi.bi_dim_tempo"]
+  n39["rx-ingestao-prd.landing_oracle.oracle_atendimento"]
+  n40{{"Cloud Composer (Airflow): dag_semantic_bi"}}
+  n41["rx-bi-prd.semantic_bi.bi_paciente"]
+  n42["rx-dados-prd.raw_faturamento.faturamento_alta"]
+  n43["rx-dados-prd.raw_faturamento.faturamento_painel"]
+  n44["dataset rx-dados-prd.dw_assistencial"]
+  n45[["Modelo: Ocupação de Leitos"]]
+  n46[["Modelo: Glosas e Convênios"]]
+  n47["rx-bi-prd.semantic_bi.bi_resumo"]
+  n48["rx-bi-prd.semantic_bi.bi_auditoria"]
+  n49["rx-dados-prd.raw_faturamento.faturamento_prescricao"]
+  n50["rx-ingestao-prd.landing_oracle.oracle_internacao"]
+  n51["rx-ingestao-prd.landing_oracle.oracle_parametro"]
+  n52["rx-ingestao-prd.landing_oracle.oracle_unidade"]
+  n53["rx-bi-prd.semantic_bi.bi_painel"]
+  n54["rx-bi-prd.semantic_bi.bi_feature"]
+  n55["rx-dados-prd.raw_faturamento.faturamento_feature"]
+  n56["rx-dados-prd.raw_faturamento.faturamento_evento"]
+  n57["rx-dados-prd.raw_faturamento.faturamento_medico"]
+  n58["rx-ingestao-prd.landing_oracle.oracle_indicador"]
+  n59["rx-ingestao-prd.landing_oracle.oracle_prescricao"]
+  n60["rx-ingestao-prd.landing_oracle.oracle_depara"]
+  n61["rx-ingestao-prd.landing_oracle.oracle_estoque"]
+  n62["rx-ingestao-prd.eventos_app.app_evento"]
+  n63["rx-dados-hml.dw_assistencial.assistencial_fato_atendimento"]
+  n64["rx-dados-prd.raw_faturamento.faturamento_produto"]
+  n65[("gs://rx-landing-arquivos-prd")]
+  n66[["Modelo: Painel Assistencial"]]
+  n67["rx-bi-prd.semantic_bi.bi_fato_receita"]
+  n68["rx-dados-prd.raw_faturamento.faturamento_item_conta"]
+  n69["rx-dados-prd.dw_faturamento.tabela_7"]
+  n70["rx-dados-prd.dw_faturamento.tabela_24"]
+  n71{{"BigQuery DTS (scheduled_query): sq_dw_assistencial_00"}}
+  n72{{"BigQuery DTS (scheduled_query): sq_dw_faturamento_01"}}
+  n73{{"BigQuery DTS (scheduled_query): sq_mart_bi_02"}}
+  n74{{"BigQuery DTS (scheduled_query): sq_mart_bi_03"}}
+  n75{{"BigQuery DTS (scheduled_query): sq_mart_bi_04"}}
+  n76["rx-dados-prd.stg_assistencial.tabela_13"]
+  n77{{"BigQuery DTS (scheduled_query): sq_dw_faturamento_05"}}
+  n78["rx-dados-prd.dw_assistencial.tabela_24"]
+  n79{{"BigQuery DTS (scheduled_query): sq_dw_faturamento_06"}}
+  n39 --> n12
+  n39 --> n26
+  n50 --> n12
+  n50 --> n13
+  n58 --> n12
+  n58 --> n14
+  n59 --> n13
+  n59 --> n12
+  n60 --> n12
+  n60 --> n26
+  n51 --> n19
+  n51 --> n30
+  n61 --> n33
+  n61 --> n14
+  n52 --> n33
+  n52 --> n19
+  n3 --> n28
+  n3 --> n21
+  n12 --> n21
+  n12 --> n4
+  n13 --> n21
+  n13 --> n22
+  n26 --> n27
+  n26 --> n22
+  n19 --> n21
+  n19 --> n4
+  n14 --> n28
+  n14 --> n20
+  n33 --> n20
+  n33 --> n21
+  n30 --> n29
+  n30 --> n22
+  n64 --> n17
+  n64 --> n18
+  n55 --> n23
+  n55 --> n18
+  n56 --> n15
+  n56 --> n17
+  n68 --> n1
+  n68 --> n5
+  n57 --> n5
+  n57 --> n17
+  n49 --> n23
+  n49 --> n15
+  n42 --> n31
+  n42 --> n17
+  n43 --> n17
+  n43 --> n24
+  n1 --> n11
+  n1 --> n16
+  n23 --> n0
+  n23 --> n2
+  n17 --> n0
+  n17 --> n7
+  n5 --> n2
+  n5 --> n0
+  n18 --> n9
+  n18 --> n0
+  n24 --> n9
+  n24 --> n8
+  n15 --> n11
+  n15 --> n2
+  n31 --> n16
+  n31 --> n2
+  n4 --> n6
+  n4 --> n9
+  n20 --> n11
+  n20 --> n7
+  n21 --> n16
+  n21 --> n0
+  n27 --> n0
+  n27 --> n8
+  n10 --> n11
+  n10 --> n8
+  n22 --> n2
+  n22 --> n0
+  n28 --> n6
+  n28 --> n16
+  n29 --> n8
+  n29 --> n0
+  n0 --> n41
+  n0 --> n37
+  n16 --> n54
+  n16 --> n53
+  n6 --> n67
+  n6 --> n38
+  n7 --> n53
+  n7 --> n38
+  n8 --> n53
+  n8 --> n37
+  n11 --> n47
+  n11 --> n37
+  n2 --> n47
+  n2 --> n37
+  n9 --> n47
+  n9 --> n41
+  n39 --> n13
+  n39 --> n19
+  n50 --> n19
+  n58 --> n3
+  n59 --> n19
+  n60 --> n13
+  n51 --> n26
+  n51 --> n3
+  n61 --> n13
+  n61 --> n3
+  n52 --> n14
+  n3 --> n22
+  n3 --> n10
+  n12 --> n10
+  n13 --> n10
+  n13 --> n20
+  n26 --> n21
+  n19 --> n10
+  n14 --> n22
+  n14 --> n10
+  n33 --> n10
+  n33 --> n4
+  n30 --> n28
+  n30 --> n20
+  n64 --> n5
+  n55 --> n15
+  n56 --> n24
+  n68 --> n18
+  n57 --> n24
+  n57 --> n18
+  n49 --> n5
+  n42 --> n5
+  n42 --> n1
+  n43 --> n15
+  n43 --> n31
+  n1 --> n9
+  n1 --> n0
+  n23 --> n6
+  n23 --> n8
+  n17 --> n9
+  n5 --> n9
+  n5 --> n11
+  n18 --> n8
+  n18 --> n2
+  n24 --> n11
+  n15 --> n7
+  n31 --> n0
+  n31 --> n11
+  n4 --> n0
+  n4 --> n11
+  n20 --> n0
+  n20 --> n6
+  n21 --> n6
+  n27 --> n7
+  n10 --> n7
+  n10 --> n16
+  n28 --> n9
+  n28 --> n0
+  n0 --> n38
+  n0 --> n54
+  n16 --> n41
+  n6 --> n48
+  n6 --> n41
+  n7 --> n41
+  n7 --> n48
+  n8 --> n54
+  n8 --> n47
+  n11 --> n41
+  n2 --> n48
+  n9 --> n67
+  n9 --> n53
+  n39 --> n30
+  n50 --> n3
+  n58 --> n19
+  n58 --> n13
+  n59 --> n3
+  n51 --> n14
+  n51 --> n13
+  n61 --> n12
+  n52 --> n30
+  n52 --> n26
+  n3 --> n20
+  n3 --> n29
+  n12 --> n27
+  n12 --> n20
+  n13 --> n28
+  n13 --> n29
+  n26 --> n10
+  n19 --> n27
+  n14 --> n21
+  n64 --> n23
+  n55 --> n5
+  n56 --> n31
+  n49 --> n1
+  n42 --> n23
+  n42 --> n24
+  n43 --> n18
+  n1 --> n2
+  n23 --> n16
+  n17 --> n11
+  n24 --> n2
+  n15 --> n6
+  n20 --> n8
+  n21 --> n8
+  n27 --> n2
+  n27 --> n6
+  n10 --> n2
+  n10 --> n9
+  n22 --> n7
+  n28 --> n2
+  n29 --> n2
+  n0 --> n48
+  n16 --> n37
+  n6 --> n37
+  n11 --> n38
+  n9 --> n38
+  n39 --> n3
+  n39 --> n14
+  n50 --> n14
+  n59 --> n26
+  n60 --> n3
+  n60 --> n14
+  n52 --> n3
+  n12 --> n22
+  n12 --> n29
+  n26 --> n4
+  n19 --> n29
+  n14 --> n27
+  n33 --> n22
+  n33 --> n29
+  n30 --> n10
+  n30 --> n4
+  n55 --> n1
+  n56 --> n5
+  n57 --> n15
+  n49 --> n17
+  n49 --> n31
+  n42 --> n15
+  n43 --> n1
+  n43 --> n5
+  n1 --> n6
+  n1 --> n7
+  n17 --> n16
+  n5 --> n6
+  n18 --> n7
+  n24 --> n16
+  n15 --> n8
+  n4 --> n2
+  n27 --> n11
+  n22 --> n6
+  n28 --> n8
+  n29 --> n7
+  n16 --> n38
+  n7 --> n54
+  n7 --> n47
+  n8 --> n38
+  n9 --> n48
+  n9 --> n37
+  n3 --> n4
+  n69 --> n72
+  n76 --> n75
+  n78 --> n77
+  n35 --> n44
+  n25 --> n44
+  n34 --> n3
+  n34 --> n12
+  n34 --> n13
+  n34 --> n26
+  n34 --> n19
+  n34 --> n14
+  n34 --> n33
+  n34 --> n30
+  n35 --> n4
+  n35 --> n20
+  n35 --> n21
+  n35 --> n27
+  n35 --> n10
+  n35 --> n22
+  n35 --> n28
+  n35 --> n29
+  n32 --> n1
+  n32 --> n23
+  n32 --> n17
+  n32 --> n5
+  n32 --> n18
+  n32 --> n24
+  n32 --> n15
+  n32 --> n31
+  n25 --> n0
+  n25 --> n16
+  n25 --> n6
+  n25 --> n7
+  n25 --> n8
+  n25 --> n11
+  n25 --> n2
+  n25 --> n9
+  n40 --> n67
+  n40 --> n37
+  n40 --> n47
+  n40 --> n38
+  n40 --> n53
+  n40 --> n48
+  n40 --> n54
+  n40 --> n41
+  n17 --> n36
+  n18 --> n36
+  n1 --> n36
+  n5 --> n36
+  n24 --> n36
+  n23 --> n36
+  n18 --> n45
+  n5 --> n45
+  n15 --> n45
+  n24 --> n45
+  n31 --> n46
+  n15 --> n46
+  n4 --> n66
+  %% 524 nós omitidos (ver data_lineage.json / .graphml)

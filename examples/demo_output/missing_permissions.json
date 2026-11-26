@@ -1,0 +1,13 @@
+[
+  {
+    "module": "security",
+    "component": "vpc_service_controls",
+    "scope": "organizations/112233445566",
+    "api": "accesscontextmanager.googleapis.com",
+    "kind": "permission_denied",
+    "message": "The caller does not have permission",
+    "suggested_role": "roles/accesscontextmanager.policyReader (na organização)",
+    "at": "2026-11-26T01:13:48+00:00",
+    "type": "permission_denied"
+  }
+]

@@ -1,0 +1,82 @@
+"""Catálogo dos serviços GCP avaliados (item 3) e hipóteses de destino Databricks (item 14).
+
+`apis`        -> nomes de serviço no Service Usage (habilitado?)
+`asset_types` -> tipos do Cloud Asset Inventory (provisionado?)
+`evidence`    -> de onde vem a evidência de uso efetivo
+"""
+from __future__ import annotations
+
+SERVICE_CATALOG: list[dict] = [
+    {"key": "bigquery", "name": "BigQuery", "apis": ["bigquery.googleapis.com"],
+     "asset_types": ["bigquery.googleapis.com/Dataset", "bigquery.googleapis.com/Table"],
+     "evidence": "INFORMATION_SCHEMA.JOBS, billing", "target": "Databricks SQL + Delta Lake / Unity Catalog"},
+    {"key": "biglake", "name": "BigLake", "apis": ["biglake.googleapis.com", "bigqueryconnection.googleapis.com"],
+     "asset_types": ["biglake.googleapis.com/Catalog"],
+     "evidence": "tabelas externas BigLake / conexões cloudResource", "target": "External Locations + tabelas Delta/Iceberg no Unity Catalog"},
+    {"key": "gcs", "name": "Google Cloud Storage", "apis": ["storage.googleapis.com", "storage-component.googleapis.com"],
+     "asset_types": ["storage.googleapis.com/Bucket"],
+     "evidence": "métricas storage/total_bytes, billing", "target": "External Locations / Volumes / Delta Lake"},
+    {"key": "composer", "name": "Cloud Composer / Airflow", "apis": ["composer.googleapis.com"],
+     "asset_types": ["composer.googleapis.com/Environment"],
+     "evidence": "DAG runs (Airflow REST API)", "target": "Lakeflow Jobs"},
+    {"key": "dataflow", "name": "Dataflow", "apis": ["dataflow.googleapis.com"],
+     "asset_types": ["dataflow.googleapis.com/Job"],
+     "evidence": "jobs na janela", "target": "Lakeflow Spark Declarative Pipelines / Structured Streaming"},
+    {"key": "dataproc", "name": "Dataproc", "apis": ["dataproc.googleapis.com"],
+     "asset_types": ["dataproc.googleapis.com/Cluster"],
+     "evidence": "jobs/batches na janela", "target": "Databricks Compute (Jobs / serverless)"},
+    {"key": "dataform", "name": "Dataform", "apis": ["dataform.googleapis.com"],
+     "asset_types": ["dataform.googleapis.com/Repository"],
+     "evidence": "workflow invocations", "target": "Lakeflow Jobs + Spark Declarative Pipelines (ou dbt)"},
+    {"key": "datafusion", "name": "Cloud Data Fusion", "apis": ["datafusion.googleapis.com"],
+     "asset_types": ["datafusion.googleapis.com/Instance"],
+     "evidence": "instâncias ativas, billing", "target": "Lakeflow Connect / Lakeflow Jobs"},
+    {"key": "pubsub", "name": "Pub/Sub", "apis": ["pubsub.googleapis.com"],
+     "asset_types": ["pubsub.googleapis.com/Topic", "pubsub.googleapis.com/Subscription"],
+     "evidence": "subscriptions ativas, api request_count", "target": "Structured Streaming (conector Pub/Sub) / Zerobus"},
+    {"key": "datastream", "name": "Datastream", "apis": ["datastream.googleapis.com"],
+     "asset_types": ["datastream.googleapis.com/Stream", "datastream.googleapis.com/ConnectionProfile"],
+     "evidence": "streams RUNNING", "target": "Lakeflow Connect (CDC) ou mecanismo CDC compatível"},
+    {"key": "cloudsql", "name": "Cloud SQL", "apis": ["sqladmin.googleapis.com"],
+     "asset_types": ["sqladmin.googleapis.com/Instance"],
+     "evidence": "instâncias RUNNABLE", "target": "Fonte (Lakeflow Connect / Federation) ou Lakebase"},
+    {"key": "alloydb", "name": "AlloyDB", "apis": ["alloydb.googleapis.com"],
+     "asset_types": ["alloydb.googleapis.com/Cluster"],
+     "evidence": "clusters READY", "target": "Fonte (Federation/CDC) ou Lakebase"},
+    {"key": "spanner", "name": "Spanner", "apis": ["spanner.googleapis.com"],
+     "asset_types": ["spanner.googleapis.com/Instance"],
+     "evidence": "instâncias READY", "target": "Fonte operacional (federation / CDC)"},
+    {"key": "functions", "name": "Cloud Functions / Cloud Run functions", "apis": ["cloudfunctions.googleapis.com"],
+     "asset_types": ["cloudfunctions.googleapis.com/CloudFunction", "cloudfunctions.googleapis.com/Function"],
+     "evidence": "funções ACTIVE, gatilhos", "target": "Lakeflow Jobs (tarefas Python) / Databricks Apps"},
+    {"key": "cloudrun", "name": "Cloud Run", "apis": ["run.googleapis.com"],
+     "asset_types": ["run.googleapis.com/Service", "run.googleapis.com/Job"],
+     "evidence": "serviços/jobs, api request_count", "target": "Databricks Apps / Lakeflow Jobs"},
+    {"key": "compute", "name": "Compute Engine", "apis": ["compute.googleapis.com"],
+     "asset_types": ["compute.googleapis.com/Instance"],
+     "evidence": "instâncias RUNNING", "target": "Avaliar caso a caso (gateways, ETL legado, ferramentas)"},
+    {"key": "gke", "name": "Google Kubernetes Engine", "apis": ["container.googleapis.com"],
+     "asset_types": ["container.googleapis.com/Cluster"],
+     "evidence": "clusters RUNNING", "target": "Avaliar caso a caso (Spark on K8s -> Databricks Compute)"},
+    {"key": "vertex", "name": "Vertex AI", "apis": ["aiplatform.googleapis.com", "notebooks.googleapis.com"],
+     "asset_types": ["aiplatform.googleapis.com/Endpoint", "aiplatform.googleapis.com/Model",
+                     "aiplatform.googleapis.com/PipelineJob", "notebooks.googleapis.com/Instance"],
+     "evidence": "endpoints/modelos, billing", "target": "Mosaic AI, MLflow e Model Serving"},
+    {"key": "dataplex", "name": "Dataplex", "apis": ["dataplex.googleapis.com", "datacatalog.googleapis.com"],
+     "asset_types": ["dataplex.googleapis.com/Lake", "dataplex.googleapis.com/DataScan"],
+     "evidence": "lakes/scans, policy tags", "target": "Unity Catalog (governança, lineage, data quality)"},
+    {"key": "scheduler", "name": "Cloud Scheduler", "apis": ["cloudscheduler.googleapis.com"],
+     "asset_types": ["cloudscheduler.googleapis.com/Job"],
+     "evidence": "jobs ENABLED + lastAttemptTime", "target": "Gatilhos/agendamentos de Lakeflow Jobs"},
+    {"key": "workflows", "name": "Workflows", "apis": ["workflows.googleapis.com"],
+     "asset_types": ["workflows.googleapis.com/Workflow"],
+     "evidence": "workflows ACTIVE", "target": "Lakeflow Jobs (orquestração)"},
+    {"key": "looker", "name": "Looker", "apis": ["looker.googleapis.com"],
+     "asset_types": ["looker.googleapis.com/Instance"],
+     "evidence": "instâncias, jobs BigQuery com principal Looker", "target": "Looker sobre Databricks SQL / AI/BI"},
+]
+
+# Agrupamento das APIs que indicam uso via métrica serviceruntime (consumed_api)
+API_TO_SERVICE = {api: s["key"] for s in SERVICE_CATALOG for api in s["apis"]}
+ASSET_TO_SERVICE = {a: s["key"] for s in SERVICE_CATALOG for a in s["asset_types"]}
+ALL_ASSET_TYPES = sorted(ASSET_TO_SERVICE)

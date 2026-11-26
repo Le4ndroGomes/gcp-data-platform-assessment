@@ -1,0 +1,4 @@
+relationship 5b2c-1
+	fromColumn: Atendimentos.id_unidade
+	toColumn: Metas.id_unidade
+	crossFilteringBehavior: bothDirections

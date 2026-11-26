@@ -1,0 +1,25 @@
+﻿ref,project_id,type,body,language,remote,created,last_altered,complexity,score,anti_patterns
+rx-dados-hml.dw_assistencial.sp_dw_assistencial_0,rx-dados-hml,PROCEDURE,SQL,SQL,False,2024-05-01T00:00:00+00:00,2026-08-01T00:00:00+00:00,Média,37.6,
+rx-dados-hml.dw_assistencial.fn_dw_assistencial_1,rx-dados-hml,FUNCTION,SQL,SQL,False,2024-05-01T00:00:00+00:00,2026-08-01T00:00:00+00:00,Baixa,8.7,
+rx-dados-hml.dw_faturamento.sp_dw_faturamento_0,rx-dados-hml,PROCEDURE,SQL,SQL,False,2024-05-01T00:00:00+00:00,2026-08-01T00:00:00+00:00,Alta,46.0,CTEs com muitos níveis
+rx-dados-hml.dw_faturamento.fn_dw_faturamento_1,rx-dados-hml,FUNCTION,EXTERNAL,JAVASCRIPT,False,2024-05-01T00:00:00+00:00,2026-08-01T00:00:00+00:00,Alta,52.5,JavaScript UDF
+rx-dados-hml.dw_faturamento.fn_dw_faturamento_2,rx-dados-hml,FUNCTION,SQL,SQL,False,2024-05-01T00:00:00+00:00,2026-08-01T00:00:00+00:00,Baixa,6.2,
+rx-dados-hml.dw_faturamento.fn_dw_faturamento_3,rx-dados-hml,FUNCTION,SQL,SQL,False,2024-05-01T00:00:00+00:00,2026-08-01T00:00:00+00:00,Baixa,9.4,
+rx-dados-hml.dw_faturamento.sp_dw_faturamento_4,rx-dados-hml,PROCEDURE,SQL,SQL,False,2024-05-01T00:00:00+00:00,2026-08-01T00:00:00+00:00,Média,17.8,SELECT *
+rx-dados-hml.dw_faturamento.fn_dw_faturamento_5,rx-dados-hml,FUNCTION,SQL,SQL,False,2024-05-01T00:00:00+00:00,2026-08-01T00:00:00+00:00,Alta,70.2,Conversões de tipo recorrentes
+rx-dados-hml.dw_faturamento.fn_dw_faturamento_6,rx-dados-hml,FUNCTION,SQL,SQL,False,2024-05-01T00:00:00+00:00,2026-08-01T00:00:00+00:00,Baixa,13.8,
+rx-dados-prd.dw_assistencial.sp_dw_assistencial_0,rx-dados-prd,PROCEDURE,SQL,SQL,False,2024-05-01T00:00:00+00:00,2026-08-01T00:00:00+00:00,Alta,24.7,SELECT *; SQL dinâmico (EXECUTE IMMEDIATE)
+rx-dados-prd.dw_assistencial.fn_dw_assistencial_1,rx-dados-prd,FUNCTION,SQL,SQL,False,2024-05-01T00:00:00+00:00,2026-08-01T00:00:00+00:00,Baixa,13.3,SELECT *
+rx-dados-prd.dw_assistencial.fn_dw_assistencial_2,rx-dados-prd,FUNCTION,EXTERNAL,JAVASCRIPT,False,2024-05-01T00:00:00+00:00,2026-08-01T00:00:00+00:00,Alta,60.7,JavaScript UDF
+rx-dados-prd.dw_assistencial.fn_dw_assistencial_3,rx-dados-prd,FUNCTION,SQL,SQL,False,2024-05-01T00:00:00+00:00,2026-08-01T00:00:00+00:00,Baixa,13.1,
+rx-dados-prd.dw_faturamento.sp_dw_faturamento_0,rx-dados-prd,PROCEDURE,SQL,SQL,False,2024-05-01T00:00:00+00:00,2026-08-01T00:00:00+00:00,Média,23.0,
+rx-dados-prd.dw_faturamento.fn_dw_faturamento_1,rx-dados-prd,FUNCTION,SQL,SQL,False,2024-05-01T00:00:00+00:00,2026-08-01T00:00:00+00:00,Baixa,9.6,
+rx-dados-prd.dw_faturamento.fn_dw_faturamento_2,rx-dados-prd,FUNCTION,SQL,SQL,False,2024-05-01T00:00:00+00:00,2026-08-01T00:00:00+00:00,Alta,47.9,CTEs com muitos níveis
+rx-dados-prd.dw_faturamento.fn_dw_faturamento_3,rx-dados-prd,FUNCTION,SQL,SQL,False,2024-05-01T00:00:00+00:00,2026-08-01T00:00:00+00:00,Baixa,6.5,
+rx-dados-prd.mart_bi.sp_mart_bi_0,rx-dados-prd,PROCEDURE,SQL,SQL,False,2024-05-01T00:00:00+00:00,2026-08-01T00:00:00+00:00,Média,35.3,
+rx-dados-prd.mart_bi.fn_mart_bi_1,rx-dados-prd,FUNCTION,SQL,SQL,False,2024-05-01T00:00:00+00:00,2026-08-01T00:00:00+00:00,Baixa,9.5,
+rx-dados-prd.mart_bi.fn_mart_bi_2,rx-dados-prd,FUNCTION,SQL,SQL,False,2024-05-01T00:00:00+00:00,2026-08-01T00:00:00+00:00,Baixa,7.2,
+rx-dados-prd.mart_bi.fn_mart_bi_3,rx-dados-prd,FUNCTION,SQL,SQL,False,2024-05-01T00:00:00+00:00,2026-08-01T00:00:00+00:00,Baixa,13.4,SELECT *
+rx-dados-prd.mart_bi.sp_mart_bi_4,rx-dados-prd,PROCEDURE,SQL,SQL,False,2024-05-01T00:00:00+00:00,2026-08-01T00:00:00+00:00,Alta,36.6,SELECT *; SQL dinâmico (EXECUTE IMMEDIATE)
+rx-dados-prd.mart_bi.fn_mart_bi_5,rx-dados-prd,FUNCTION,SQL,SQL,False,2024-05-01T00:00:00+00:00,2026-08-01T00:00:00+00:00,Alta,51.0,SELECT DISTINCT excessivo
+rx-dados-prd.mart_bi.fn_mart_bi_6,rx-dados-prd,FUNCTION,SQL,SQL,False,2024-05-01T00:00:00+00:00,2026-08-01T00:00:00+00:00,Baixa,13.7,SELECT *

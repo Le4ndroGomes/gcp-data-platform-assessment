@@ -1,0 +1,10 @@
+# Núcleo (coleta GCP)
+google-auth>=2.29,<3
+requests>=2.31,<3
+PyYAML>=6.0,<7
+# Power BI online (Microsoft Entra ID). Opcional se usar somente o modo offline.
+msal>=1.28,<2
+# Análise de SQL (parser dialeto BigQuery). Opcional: sem ele, usa extração por regex.
+sqlglot>=25,<27
+# Exportação Excel. Opcional: sem ele, assessment_report.xlsx não é gerado.
+openpyxl>=3.1,<4

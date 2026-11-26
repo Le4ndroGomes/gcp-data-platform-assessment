@@ -1,0 +1,57 @@
+flowchart LR
+  subgraph L0["Origens"]
+    ext0[("excel")]
+    ext1[("oracle")]
+    ext2[("sftp")]
+    ext3[("sharepoint")]
+    ext4[("sqlServer")]
+    cloudsql[("Cloud SQL")]
+  end
+  subgraph L1["Ingestão"]
+    datastream["Datastream"]
+    pubsub["Pub/Sub"]
+    functions["Cloud Functions / Cloud Run functions"]
+    cloudrun["Cloud Run"]
+  end
+  subgraph L2["Armazenamento"]
+    gcs["Google Cloud Storage"]
+    biglake["BigLake (sem evidência de uso)"]
+    bigquery["BigQuery — 463 objetos"]
+  end
+  subgraph L3["Transformação e orquestração"]
+    dataform["Dataform"]
+    composer["Cloud Composer / Airflow"]
+    dataflow["Dataflow"]
+    dataproc["Dataproc"]
+    scheduler["Cloud Scheduler"]
+    workflows["Workflows"]
+  end
+  subgraph L4["Governança"]
+    dataplex["Dataplex (sem evidência de uso)"]
+  end
+  subgraph L5["Consumo"]
+    vertex["Vertex AI"]
+    powerbi[/"Power BI — 6 modelos, 8 relatórios"/]
+  end
+  datastream --> bigquery
+  pubsub --> bigquery
+  functions --> bigquery
+  dataflow --> bigquery
+  dataproc --> bigquery
+  dataform --> bigquery
+  composer --> bigquery
+  gcs --> bigquery
+  bigquery --> powerbi
+  bigquery --> vertex
+  pubsub --> dataflow
+  cloudsql -.->|fonte operacional| bigquery
+  ext0 -.-> powerbi
+  ext1 -.-> datastream
+  ext2 -.-> composer
+  ext3 -.-> composer
+  ext3 -.-> powerbi
+  ext4 -.-> datastream
+  scheduler -.-> cloudrun
+  scheduler -.-> composer
+  scheduler -.-> dataflow
+  scheduler -.-> workflows

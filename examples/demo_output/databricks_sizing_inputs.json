@@ -1,0 +1,488 @@
+{
+  "inputs": {
+    "initial_migration_volume": {
+      "logical": {
+        "bytes": 42093088815798,
+        "GB": 42093.09,
+        "TB": 42.093,
+        "GiB": 39202.24,
+        "TiB": 38.283
+      },
+      "physical": {
+        "bytes": 7378386505341,
+        "GB": 7378.39,
+        "TB": 7.378,
+        "GiB": 6871.66,
+        "TiB": 6.711
+      },
+      "excluding_low_usage_logical": {
+        "bytes": 41818497023772,
+        "GB": 41818.5,
+        "TB": 41.818,
+        "GiB": 38946.51,
+        "TiB": 38.034
+      },
+      "note": "Volume lógico = não comprimido; o volume em Delta tende a ficar próximo do físico (colunar comprimido) — validar na POC."
+    },
+    "active_storage": {
+      "logical": {
+        "bytes": 13983788342726,
+        "GB": 13983.79,
+        "TB": 13.984,
+        "GiB": 13023.42,
+        "TiB": 12.718
+      },
+      "physical": {
+        "bytes": 2193983161141,
+        "GB": 2193.98,
+        "TB": 2.194,
+        "GiB": 2043.31,
+        "TiB": 1.995
+      }
+    },
+    "long_term_storage": {
+      "bytes": 28109300472640,
+      "GB": 28109.3,
+      "TB": 28.109,
+      "GiB": 26178.83,
+      "TiB": 25.565
+    },
+    "gcs_volume": {
+      "bytes": 322002000000000,
+      "GB": 322002.0,
+      "TB": 322.002,
+      "GiB": 299887.73,
+      "TiB": 292.859
+    },
+    "daily_ingestion": {
+      "streaming_bytes_per_day": 22372876259,
+      "streaming_source": "Cloud Monitoring bigquery storage/uploaded_bytes",
+      "net_growth_bytes_per_day": 190452595535,
+      "modified_partitions_bytes_per_day": null,
+      "modified_partitions_note": null
+    },
+    "monthly_growth_bytes": 5713577866050.0625,
+    "monthly_growth_source": "Cloud Monitoring stored_bytes (30 dias)",
+    "pipelines": {
+      "total": 53,
+      "by_technology": {
+        "BigQuery DTS": 26,
+        "Cloud Composer": 8,
+        "Cloud Scheduler": 5,
+        "Dataflow": 3,
+        "Pub/Sub": 3,
+        "Cloud Functions": 3,
+        "Datastream": 2,
+        "Workflows": 1,
+        "Dataform": 1,
+        "Dataproc": 1
+      },
+      "runs_per_day": 364.0,
+      "by_frequency": {
+        "diária": 15,
+        "horária ou mais frequente": 12,
+        "várias vezes ao dia": 9,
+        "mensal ou menor": 4,
+        "desconhecida/sob demanda": 3,
+        "contínua (streaming)": 3,
+        "orientada a eventos": 3,
+        "semanal": 2,
+        "contínua (freshness 900s)": 2
+      },
+      "batch": 43,
+      "streaming": 7,
+      "processing_window": {
+        "last_run_hour_utc_distribution": {
+          "12": 34
+        },
+        "note": "Aproximação pela hora da última execução observada (UTC)."
+      }
+    },
+    "queries": {
+      "jobs_per_day": 5582.9,
+      "queries_per_day": 4735.7,
+      "peak_hour_local": 13,
+      "hour_profile": [
+        {
+          "hour": 0,
+          "avg_jobs": 126.7,
+          "slot_hours_per_day": 36.82
+        },
+        {
+          "hour": 1,
+          "avg_jobs": 241.8,
+          "slot_hours_per_day": 64.92
+        },
+        {
+          "hour": 2,
+          "avg_jobs": 244.5,
+          "slot_hours_per_day": 62.72
+        },
+        {
+          "hour": 3,
+          "avg_jobs": 238.5,
+          "slot_hours_per_day": 61.17
+        },
+        {
+          "hour": 4,
+          "avg_jobs": 241.1,
+          "slot_hours_per_day": 64.83
+        },
+        {
+          "hour": 5,
+          "avg_jobs": 129.1,
+          "slot_hours_per_day": 36.88
+        },
+        {
+          "hour": 6,
+          "avg_jobs": 124.9,
+          "slot_hours_per_day": 36.78
+        },
+        {
+          "hour": 7,
+          "avg_jobs": 177.2,
+          "slot_hours_per_day": 57.41
+        },
+        {
+          "hour": 8,
+          "avg_jobs": 227.0,
+          "slot_hours_per_day": 72.94
+        },
+        {
+          "hour": 9,
+          "avg_jobs": 273.7,
+          "slot_hours_per_day": 94.78
+        },
+        {
+          "hour": 10,
+          "avg_jobs": 309.9,
+          "slot_hours_per_day": 104.7
+        },
+        {
+          "hour": 11,
+          "avg_jobs": 333.1,
+          "slot_hours_per_day": 110.65
+        },
+        {
+          "hour": 12,
+          "avg_jobs": 356.2,
+          "slot_hours_per_day": 119.15
+        },
+        {
+          "hour": 13,
+          "avg_jobs": 363.7,
+          "slot_hours_per_day": 127.83
+        },
+        {
+          "hour": 14,
+          "avg_jobs": 359.7,
+          "slot_hours_per_day": 127.73
+        },
+        {
+          "hour": 15,
+          "avg_jobs": 340.0,
+          "slot_hours_per_day": 119.05
+        },
+        {
+          "hour": 16,
+          "avg_jobs": 309.7,
+          "slot_hours_per_day": 107.32
+        },
+        {
+          "hour": 17,
+          "avg_jobs": 272.0,
+          "slot_hours_per_day": 91.5
+        },
+        {
+          "hour": 18,
+          "avg_jobs": 225.4,
+          "slot_hours_per_day": 74.47
+        },
+        {
+          "hour": 19,
+          "avg_jobs": 179.1,
+          "slot_hours_per_day": 55.96
+        },
+        {
+          "hour": 20,
+          "avg_jobs": 127.0,
+          "slot_hours_per_day": 36.51
+        },
+        {
+          "hour": 21,
+          "avg_jobs": 127.2,
+          "slot_hours_per_day": 37.62
+        },
+        {
+          "hour": 22,
+          "avg_jobs": 127.7,
+          "slot_hours_per_day": 36.8
+        },
+        {
+          "hour": 23,
+          "avg_jobs": 127.8,
+          "slot_hours_per_day": 39.44
+        }
+      ]
+    },
+    "users": {
+      "bigquery_human_principals": 41,
+      "powerbi_active_viewers": 612,
+      "powerbi_activity_window_days": 28
+    },
+    "concurrency": {
+      "peak_concurrent_jobs": 76,
+      "avg_concurrent_jobs_active_minutes": 2.5,
+      "note": "Concorrência = jobs ativos no minuto (limite superior). Pico por região, não somado entre regiões."
+    },
+    "peaks": {
+      "peak_minute_slots_bigquery": 931.5,
+      "p95_hourly_avg_slots": 170.67,
+      "peak_day": "2026-11-04",
+      "month_edge_factor": 1.39,
+      "weekend_factor": 0.58
+    },
+    "latency_observed": {
+      "p50_ms": 3465.2,
+      "p95_ms": 70067.0,
+      "p99_ms": 214209.9,
+      "required": "não documentado — levantar SLAs com o negócio"
+    },
+    "bi": {
+      "reports": 8,
+      "semantic_models": 6,
+      "storage_modes": {
+        "Import (inferido: targetStorageMode=Abf)": 4,
+        "Composite": 1,
+        "Import": 1
+      },
+      "models_on_bigquery": 6,
+      "refresh_p50_s": 663.9972245494899
+    },
+    "workloads_by_class": {
+      "Data Engineering e ETL": {
+        "slot_hours": 52855.4,
+        "jobs": 189996,
+        "slot_pct": 32.7
+      },
+      "Data Warehousing": {
+        "slot_hours": 62093.8,
+        "jobs": 152025,
+        "slot_pct": 38.4
+      },
+      "Business Intelligence": {
+        "slot_hours": 29446.7,
+        "jobs": 110196,
+        "slot_pct": 18.2
+      },
+      "Ad hoc Analytics": {
+        "slot_hours": 15321.5,
+        "jobs": 82730,
+        "slot_pct": 9.5
+      },
+      "Machine Learning": {
+        "slot_hours": 2078.3,
+        "jobs": 18173,
+        "slot_pct": 1.3
+      }
+    },
+    "ml_ai": {
+      "vertex_in_use": true,
+      "bqml_statements": 18173
+    },
+    "availability": {
+      "production_projects": 3,
+      "requirement": "não documentado — levantar RTO/RPO"
+    },
+    "network_security": {
+      "vpc_sc_perimeters": 0,
+      "private_connectivity": {
+        "vpcs": 6,
+        "subnets": 12,
+        "subnets_private_google_access": 11,
+        "vpn_tunnels": 1,
+        "interconnect_attachments": 0,
+        "cloud_nat": 6,
+        "shared_vpc_hosts": 0,
+        "shared_vpc_service_projects": 0,
+        "private_services_access": 6,
+        "peerings": 6
+      },
+      "cmek_datasets": 1,
+      "sensitive_name_columns": 853,
+      "data_residency": [
+        {
+          "gcp_location": "US",
+          "databricks_region": "us-central1",
+          "supported": true,
+          "missing_features": [],
+          "cross_geo_only": [],
+          "location": "Iowa, US"
+        },
+        {
+          "gcp_location": "US",
+          "databricks_region": "us-east1",
+          "supported": true,
+          "missing_features": [],
+          "cross_geo_only": [],
+          "location": "South Carolina, US"
+        },
+        {
+          "gcp_location": "US",
+          "databricks_region": "us-east4",
+          "supported": true,
+          "missing_features": [],
+          "cross_geo_only": [],
+          "location": "Virginia, US"
+        },
+        {
+          "gcp_location": "US",
+          "databricks_region": "us-west1",
+          "supported": true,
+          "missing_features": [],
+          "cross_geo_only": [],
+          "location": "Oregon, US"
+        },
+        {
+          "gcp_location": "southamerica-east1",
+          "databricks_region": "southamerica-east1",
+          "supported": true,
+          "missing_features": [
+            "databricks_apps",
+            "lakebase",
+            "lakeflow_connect_managed",
+            "zerobus_ingest",
+            "ai_search",
+            "data_quality_monitoring",
+            "custom_agents_eval",
+            "knowledge_assistant",
+            "supervisor_agent",
+            "ai_query_batch",
+            "ai_parse_document_v2",
+            "model_serving_cpu",
+            "model_serving_gpu",
+            "external_models",
+            "fmapi_provisioned",
+            "fmapi_pay_per_token"
+          ],
+          "cross_geo_only": [],
+          "location": "São Paulo, Brazil"
+        }
+      ]
+    },
+    "bigquery_reference_only": {
+      "slot_hours_window": 161795.7,
+      "avg_slots_window": 74.91,
+      "bytes_billed_window": 662949323771795,
+      "window_days": 90,
+      "warning": "Referência de consumo no BigQuery. NÃO converter diretamente em DBUs."
+    }
+  },
+  "scenarios": [
+    {
+      "scenario": "Conservador",
+      "storage_logical_bytes_12m": 76374556012098,
+      "queries_per_day": 3788.6,
+      "peak_concurrent_queries": 76.0,
+      "pipelines_runs_per_day": 291.2,
+      "assumptions": "consultas ×0.80, concorrência ×1.00, crescimento de 6 meses ao ritmo observado"
+    },
+    {
+      "scenario": "Esperado",
+      "storage_logical_bytes_12m": 110656023208399,
+      "queries_per_day": 4735.7,
+      "peak_concurrent_queries": 91.2,
+      "pipelines_runs_per_day": 364.0,
+      "assumptions": "consultas ×1.00, concorrência ×1.20, crescimento de 12 meses ao ritmo observado"
+    },
+    {
+      "scenario": "Pico",
+      "storage_logical_bytes_12m": 110656023208399,
+      "queries_per_day": 8557.4,
+      "peak_concurrent_queries": 158.5,
+      "pipelines_runs_per_day": 657.7,
+      "assumptions": "consultas ×1.81, concorrência ×2.08, crescimento de 12 meses ao ritmo observado"
+    }
+  ],
+  "poc_benchmarks": [
+    {
+      "benchmark": "Replay das top consultas por custo/slots",
+      "inputs": [
+        "94b132e50fda27c1",
+        "0534804c425a7e76",
+        "18a8ba6ada621aad",
+        "564fc439766b194d",
+        "cfe4c424e58b8f68",
+        "1d83ccef3c8d5dc8",
+        "ba8827e4ee7a8217",
+        "8a5f1df1b044cd7e",
+        "3a4a63be4a4d7de0",
+        "6137792ba8029e3a",
+        "42da4d55a8eb001c",
+        "7519a4f343b351aa",
+        "b054bd5a84634820",
+        "14e26acc24c9c084",
+        "ea836b3340eb8ed3",
+        "3d5433448d079484",
+        "b53a72dec7fcfea1",
+        "f280567a2fecb798",
+        "d5103151a7d7d13f",
+        "751e1df8e0534f11"
+      ],
+      "goal": "Medir tempo e DBU por consulta em Databricks SQL serverless (Photon) vs BigQuery"
+    },
+    {
+      "benchmark": "Concorrência de BI (DirectQuery)",
+      "inputs": [
+        "Faturamento Hospitalar",
+        "Glosas e Convênios",
+        "Indicadores Diretoria",
+        "Ocupação de Leitos",
+        "Painel Assistencial"
+      ],
+      "goal": "Validar latência sob concorrência (pico observado: 76 jobs ativos no minuto, limite superior) e calibrar min/max clusters na POC; não há conversão confiável de concorrência em clusters"
+    },
+    {
+      "benchmark": "Pipelines críticos (janela batch)",
+      "inputs": [
+        "hive-legado-diario",
+        "wf-fechamento-mensal",
+        "df-carga-laudos",
+        "dag_carga_assistencial",
+        "dag_export_ans",
+        "dag_dw_faturamento",
+        "dag_stg_assistencial",
+        "dag_reprocessamento",
+        "dag_ingestao_sharepoint",
+        "dag_dw_assistencial"
+      ],
+      "goal": "Comparar duração e custo em Lakeflow Jobs serverless/classic"
+    },
+    {
+      "benchmark": "Carga inicial / backfill",
+      "inputs": [
+        "rx-ingestao-prd.eventos_app.app_evento",
+        "rx-dados-prd.raw_faturamento.faturamento_triagem",
+        "rx-dados-prd.raw_prontuario.prontuario_prestador",
+        "rx-ingestao-prd.landing_oracle.oracle_glosa",
+        "rx-ingestao-prd.landing_oracle.oracle_fornecedor"
+      ],
+      "goal": "Medir throughput de exportação/ingestão (GCS->Delta) e tamanho final em Delta"
+    },
+    {
+      "benchmark": "CDC / streaming",
+      "inputs": [
+        "external:oracle:host_dcf2b503be",
+        "external:sftp:parceiros",
+        "external:sharepoint",
+        "external:sqlServer:host_7888a71b2f"
+      ],
+      "goal": "Latência ponta a ponta e custo de pipelines contínuos"
+    }
+  ],
+  "principles": [
+    "Não converter slots em DBUs.",
+    "Calibrar com benchmarks da POC.",
+    "Separar SQL Analytics (warehouses) de Data Engineering (jobs/pipelines)."
+  ]
+}

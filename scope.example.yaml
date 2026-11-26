@@ -1,0 +1,9 @@
+# Caso de uso para --focus-file (item 20). Informe uma ou mais sementes.
+name: "Painel de Faturamento"
+seeds:
+  powerbi_reports: []                      # nome ou ID do relatório
+  powerbi_datasets: ["Faturamento Hospitalar"]   # nome ou ID do semantic model
+  bigquery_datasets: []                    # projeto.dataset
+  bigquery_tables: []                      # projeto.dataset.tabela
+direction: both                            # upstream | downstream | both
+max_depth: 25

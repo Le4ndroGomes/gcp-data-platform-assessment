@@ -1,0 +1,35 @@
+table Atendimentos
+	lineageTag: 11111111-aaaa
+
+	measure 'Total Atendimentos' = COUNTROWS(Atendimentos)
+		formatString: 0
+
+	measure 'Atendimentos YoY %' = ```
+			VAR atual = [Total Atendimentos]
+			VAR anterior = CALCULATE([Total Atendimentos], SAMEPERIODLASTYEAR(Calendario[Data]))
+			RETURN DIVIDE(atual - anterior, anterior)
+			```
+
+	measure 'Tempo Médio Permanência' = AVERAGEX(FILTER(Atendimentos, Atendimentos[tp_atendimento] = "I"), Atendimentos[dias_internacao])
+
+	column id_atendimento
+		dataType: int64
+		sourceColumn: id_atendimento
+
+	column dias_internacao = DATEDIFF(Atendimentos[dt_atendimento], Atendimentos[dt_alta], DAY)
+		dataType: int64
+
+	partition Atendimentos = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="rx-bi-prd"]),
+				    #"rx-dados-prd" = Source{[Name="rx-dados-prd"]}[Data],
+				    dw_Schema = #"rx-dados-prd"{[Name="dw_assistencial",Kind="Schema"]}[Data],
+				    tbl = dw_Schema{[Name="assistencial_fato_atendimento",Kind="Table"]}[Data],
+				    #"Linhas Filtradas" = Table.SelectRows(tbl, each [dt_atendimento] >= #date(2023, 1, 1)),
+				    #"Mesclado" = Table.NestedJoin(#"Linhas Filtradas", {"id_unidade"}, Unidades, {"id_unidade"}, "U", JoinKind.LeftOuter),
+				    #"Expandido" = Table.ExpandTableColumn(#"Mesclado", "U", {"nm_unidade"}),
+				    #"Agrupado" = Table.Group(#"Expandido", {"id_unidade"}, {{"qt", each Table.RowCount(_), Int64.Type}})
+				in
+				    #"Expandido"

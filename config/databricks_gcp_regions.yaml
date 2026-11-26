@@ -1,0 +1,50 @@
+# Snapshot da disponibilidade de recursos do Databricks on Google Cloud por região.
+# Fonte: https://docs.databricks.com/gcp/en/resources/supported-regions
+#        https://docs.databricks.com/gcp/en/resources/feature-region-support
+# Capturado em: 2026-11-25. A disponibilidade muda com frequência: revalide antes de decisões.
+# "cross_geo" = suportado apenas com cross geography routing habilitado.
+snapshot_date: "2026-11-25"
+sources:
+  - https://docs.databricks.com/gcp/en/resources/supported-regions
+  - https://docs.databricks.com/gcp/en/resources/feature-region-support
+features:
+  - serverless_compute        # notebooks, jobs, pipelines e SQL warehouses serverless
+  - databricks_apps
+  - serverless_workspaces
+  - default_storage
+  - lakebase
+  - lakeflow_connect_managed  # conectores gerenciados do Lakeflow Connect
+  - zerobus_ingest
+  - ai_search
+  - data_quality_monitoring
+  - predictive_optimization
+  - custom_agents_eval
+  - knowledge_assistant
+  - supervisor_agent
+  - ai_query_batch
+  - ai_parse_document_v2
+  - model_serving_cpu
+  - model_serving_gpu
+  - external_models
+  - fmapi_provisioned
+  - fmapi_pay_per_token
+regions:
+  asia-northeast1:        {location: "Tokyo, Japan", serverless_compute: true, databricks_apps: true, serverless_workspaces: true, default_storage: true, lakebase: false, lakeflow_connect_managed: true, zerobus_ingest: true, ai_search: false, data_quality_monitoring: false, predictive_optimization: true, custom_agents_eval: false, knowledge_assistant: false, supervisor_agent: false, ai_query_batch: false, ai_parse_document_v2: false, model_serving_cpu: false, model_serving_gpu: false, external_models: false, fmapi_provisioned: false, fmapi_pay_per_token: false}
+  asia-south1:            {location: "Mumbai, India", serverless_compute: true, databricks_apps: true, serverless_workspaces: true, default_storage: true, lakebase: false, lakeflow_connect_managed: true, zerobus_ingest: true, ai_search: true, data_quality_monitoring: true, predictive_optimization: true, custom_agents_eval: true, knowledge_assistant: cross_geo, supervisor_agent: cross_geo, ai_query_batch: cross_geo, ai_parse_document_v2: cross_geo, model_serving_cpu: true, model_serving_gpu: true, external_models: true, fmapi_provisioned: cross_geo, fmapi_pay_per_token: cross_geo}
+  asia-southeast1:        {location: "Singapore", serverless_compute: true, databricks_apps: true, serverless_workspaces: true, default_storage: true, lakebase: true, lakeflow_connect_managed: true, zerobus_ingest: true, ai_search: true, data_quality_monitoring: true, predictive_optimization: true, custom_agents_eval: true, knowledge_assistant: cross_geo, supervisor_agent: cross_geo, ai_query_batch: cross_geo, ai_parse_document_v2: cross_geo, model_serving_cpu: true, model_serving_gpu: true, external_models: true, fmapi_provisioned: cross_geo, fmapi_pay_per_token: cross_geo}
+  australia-southeast1:   {location: "Sydney, Australia", serverless_compute: true, databricks_apps: false, serverless_workspaces: true, default_storage: true, lakebase: false, lakeflow_connect_managed: true, zerobus_ingest: false, ai_search: false, data_quality_monitoring: false, predictive_optimization: true, custom_agents_eval: false, knowledge_assistant: false, supervisor_agent: false, ai_query_batch: false, ai_parse_document_v2: false, model_serving_cpu: false, model_serving_gpu: false, external_models: false, fmapi_provisioned: false, fmapi_pay_per_token: false}
+  europe-west1:           {location: "Belgium, Europe", serverless_compute: true, databricks_apps: true, serverless_workspaces: true, default_storage: true, lakebase: false, lakeflow_connect_managed: true, zerobus_ingest: false, ai_search: false, data_quality_monitoring: false, predictive_optimization: true, custom_agents_eval: false, knowledge_assistant: false, supervisor_agent: false, ai_query_batch: false, ai_parse_document_v2: false, model_serving_cpu: false, model_serving_gpu: false, external_models: false, fmapi_provisioned: false, fmapi_pay_per_token: false}
+  europe-west2:           {location: "England, Europe", serverless_compute: true, databricks_apps: true, serverless_workspaces: true, default_storage: true, lakebase: false, lakeflow_connect_managed: true, zerobus_ingest: true, ai_search: true, data_quality_monitoring: true, predictive_optimization: true, custom_agents_eval: true, knowledge_assistant: cross_geo, supervisor_agent: cross_geo, ai_query_batch: cross_geo, ai_parse_document_v2: cross_geo, model_serving_cpu: true, model_serving_gpu: true, external_models: true, fmapi_provisioned: cross_geo, fmapi_pay_per_token: cross_geo}
+  europe-west3:           {location: "Frankfurt, Germany", serverless_compute: true, databricks_apps: true, serverless_workspaces: true, default_storage: true, lakebase: true, lakeflow_connect_managed: true, zerobus_ingest: true, ai_search: true, data_quality_monitoring: false, predictive_optimization: true, custom_agents_eval: true, knowledge_assistant: cross_geo, supervisor_agent: cross_geo, ai_query_batch: cross_geo, ai_parse_document_v2: cross_geo, model_serving_cpu: true, model_serving_gpu: true, external_models: true, fmapi_provisioned: cross_geo, fmapi_pay_per_token: cross_geo}
+  me-central2:            {location: "Dammam, Saudi Arabia", serverless_compute: true, databricks_apps: false, serverless_workspaces: true, default_storage: true, lakebase: false, lakeflow_connect_managed: true, zerobus_ingest: false, ai_search: false, data_quality_monitoring: false, predictive_optimization: false, custom_agents_eval: false, knowledge_assistant: false, supervisor_agent: false, ai_query_batch: false, ai_parse_document_v2: false, model_serving_cpu: false, model_serving_gpu: false, external_models: false, fmapi_provisioned: false, fmapi_pay_per_token: false}
+  northamerica-northeast1: {location: "Montréal, Canada", serverless_compute: true, databricks_apps: false, serverless_workspaces: true, default_storage: true, lakebase: false, lakeflow_connect_managed: true, zerobus_ingest: false, ai_search: false, data_quality_monitoring: false, predictive_optimization: true, custom_agents_eval: false, knowledge_assistant: false, supervisor_agent: false, ai_query_batch: false, ai_parse_document_v2: false, model_serving_cpu: false, model_serving_gpu: false, external_models: false, fmapi_provisioned: false, fmapi_pay_per_token: false}
+  southamerica-east1:     {location: "São Paulo, Brazil", serverless_compute: true, databricks_apps: false, serverless_workspaces: true, default_storage: true, lakebase: false, lakeflow_connect_managed: false, zerobus_ingest: false, ai_search: false, data_quality_monitoring: false, predictive_optimization: true, custom_agents_eval: false, knowledge_assistant: false, supervisor_agent: false, ai_query_batch: false, ai_parse_document_v2: false, model_serving_cpu: false, model_serving_gpu: false, external_models: false, fmapi_provisioned: false, fmapi_pay_per_token: false}
+  us-central1:            {location: "Iowa, US", serverless_compute: true, databricks_apps: true, serverless_workspaces: true, default_storage: true, lakebase: true, lakeflow_connect_managed: true, zerobus_ingest: true, ai_search: true, data_quality_monitoring: true, predictive_optimization: true, custom_agents_eval: true, knowledge_assistant: true, supervisor_agent: true, ai_query_batch: true, ai_parse_document_v2: true, model_serving_cpu: true, model_serving_gpu: true, external_models: true, fmapi_provisioned: true, fmapi_pay_per_token: true}
+  us-east1:               {location: "South Carolina, US", serverless_compute: true, databricks_apps: true, serverless_workspaces: true, default_storage: true, lakebase: true, lakeflow_connect_managed: true, zerobus_ingest: true, ai_search: true, data_quality_monitoring: true, predictive_optimization: true, custom_agents_eval: true, knowledge_assistant: true, supervisor_agent: true, ai_query_batch: true, ai_parse_document_v2: true, model_serving_cpu: true, model_serving_gpu: true, external_models: true, fmapi_provisioned: true, fmapi_pay_per_token: true}
+  us-east4:               {location: "Virginia, US", serverless_compute: true, databricks_apps: true, serverless_workspaces: true, default_storage: true, lakebase: true, lakeflow_connect_managed: true, zerobus_ingest: true, ai_search: true, data_quality_monitoring: true, predictive_optimization: true, custom_agents_eval: true, knowledge_assistant: true, supervisor_agent: true, ai_query_batch: true, ai_parse_document_v2: true, model_serving_cpu: true, model_serving_gpu: true, external_models: true, fmapi_provisioned: true, fmapi_pay_per_token: true}
+  us-west1:               {location: "Oregon, US", serverless_compute: true, databricks_apps: true, serverless_workspaces: true, default_storage: true, lakebase: true, lakeflow_connect_managed: true, zerobus_ingest: true, ai_search: true, data_quality_monitoring: true, predictive_optimization: true, custom_agents_eval: true, knowledge_assistant: true, supervisor_agent: true, ai_query_batch: true, ai_parse_document_v2: true, model_serving_cpu: true, model_serving_gpu: true, external_models: true, fmapi_provisioned: true, fmapi_pay_per_token: true}
+  us-west4:               {location: "Nevada, US", serverless_compute: true, databricks_apps: false, serverless_workspaces: false, default_storage: false, lakebase: false, lakeflow_connect_managed: true, zerobus_ingest: false, ai_search: false, data_quality_monitoring: true, predictive_optimization: true, custom_agents_eval: false, knowledge_assistant: false, supervisor_agent: false, ai_query_batch: false, ai_parse_document_v2: false, model_serving_cpu: false, model_serving_gpu: false, external_models: false, fmapi_provisioned: false, fmapi_pay_per_token: false}
+# Multi-regiões do BigQuery -> regiões Databricks candidatas (hipótese; decidir com o cliente)
+multi_region_candidates:
+  US: [us-central1, us-east1, us-east4, us-west1]
+  EU: [europe-west1, europe-west2, europe-west3]
