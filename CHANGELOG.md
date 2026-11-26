@@ -19,6 +19,10 @@ impersonação de service account, 90 dias de histórico).
   como `n/d (sem visibilidade)` quando o componente não foi coletado.
 - **Sizing:** removida a heurística "clusters SQL = concorrência / 10", que não é confiável.
 
+### Corrigido (scripts)
+- `setup_assessment_sa.sh --extra-projects`: o papel customizado só era criado no projeto principal, então o binding nos demais projetos falhava. Agora o papel é criado (ou atualizado) em cada projeto; o teardown remove em todos.
+- `docs/CUSTOMER_GUIDE.md` reescrito como um único caminho linear (os mesmos comandos validados no GCP real), sem edição obrigatória do `config.yaml`; o script virou atalho opcional.
+
 ### Desempenho
 - Módulos independentes rodam em paralelo respeitando dependências (`core/scheduler.py`; `--sequential` ou `execution.parallel_modules: false` desativam).
 - Paralelismo dentro dos módulos: tecnologias de pipelines, serviços, verificações de segurança (ACL por dataset, chaves por service account,

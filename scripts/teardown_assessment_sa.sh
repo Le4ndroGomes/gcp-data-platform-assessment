@@ -32,9 +32,10 @@ if [[ -n "$ORG" ]]; then
 else
   IFS=',' read -r -a projs <<< "${PROJECT},${EXTRA}"
   for p in "${projs[@]}"; do
-    [[ -n "$p" ]] && run "Remove o papel de leitura de $p" gcloud projects remove-iam-policy-binding "$p" --member "$member" --role "projects/${p}/roles/${ROLE_ID}" --condition=None --format=none
+    [[ -n "$p" ]] || continue
+    run "Remove o papel de leitura de $p" gcloud projects remove-iam-policy-binding "$p" --member "$member" --role "projects/${p}/roles/${ROLE_ID}" --condition=None --format=none
+    run "Remove o papel customizado de $p" gcloud iam roles delete "$ROLE_ID" --project "$p" --quiet
   done
-  run "Remove o papel customizado" gcloud iam roles delete "$ROLE_ID" --project "$PROJECT" --quiet
 fi
 run "Remove bigquery.jobUser" gcloud projects remove-iam-policy-binding "$PROJECT" --member "$member" --role roles/bigquery.jobUser --condition=None --format=none
 [[ -n "$BILLING_DS" ]] && run "Remove o acesso ao Billing Export" bq remove-iam-policy-binding --member "$member" --role roles/bigquery.dataViewer "$BILLING_DS"

@@ -83,23 +83,26 @@ else
     --description "Leitura de metadados para assessment; sem acesso a dados de negócio"
 fi
 
-# 2. Papel customizado
-if [[ "$SCOPE" == "organization" ]]; then ROLE_SCOPE_FLAG=(--organization "$ORG"); else ROLE_SCOPE_FLAG=(--project "$PROJECT"); fi
-if exists gcloud iam roles describe "$ROLE_ID" "${ROLE_SCOPE_FLAG[@]}"; then
-  run "Atualiza o papel customizado existente" gcloud iam roles update "$ROLE_ID" "${ROLE_SCOPE_FLAG[@]}" --file "$ROLE_FILE" --quiet
-else
-  run "Cria o papel customizado (somente permissões de leitura de metadados)" gcloud iam roles create "$ROLE_ID" "${ROLE_SCOPE_FLAG[@]}" --file "$ROLE_FILE" --quiet
-fi
+# 2. Papel customizado. Em escopo de projeto o papel existe por projeto: é criado (ou atualizado) em cada um deles.
+ensure_role() {  # ensure_role <flag de escopo> <valor>
+  if exists gcloud iam roles describe "$ROLE_ID" "$1" "$2"; then
+    run "Atualiza o papel customizado existente" gcloud iam roles update "$ROLE_ID" "$1" "$2" --file "$ROLE_FILE" --quiet
+  else
+    run "Cria o papel customizado (somente permissões de leitura de metadados)" gcloud iam roles create "$ROLE_ID" "$1" "$2" --file "$ROLE_FILE" --quiet
+  fi
+}
 
 # 3. Bindings. --condition=None evita o prompt interativo quando a política já tem bindings condicionais.
 #    --format=none evita imprimir a política IAM inteira.
 member="serviceAccount:${SA_EMAIL}"
 bind_project() {
   local p="$1"
-  [[ "$SCOPE" == "project" ]] && run "Papel de leitura no projeto $p" gcloud projects add-iam-policy-binding "$p" \
+  ensure_role --project "$p"
+  run "Papel de leitura no projeto $p" gcloud projects add-iam-policy-binding "$p" \
     --member "$member" --role "projects/${p}/roles/${ROLE_ID}" --condition=None --format=none
 }
 if [[ "$SCOPE" == "organization" ]]; then
+  ensure_role --organization "$ORG"
   run "Papel de leitura na organização" gcloud organizations add-iam-policy-binding "$ORG" --member "$member" --role "$ROLE_REF" --condition=None --format=none
   run "Leitura de VPC Service Controls" gcloud organizations add-iam-policy-binding "$ORG" --member "$member" --role roles/accesscontextmanager.policyReader --condition=None --format=none
   run "Leitura de Organization Policies" gcloud organizations add-iam-policy-binding "$ORG" --member "$member" --role roles/orgpolicy.policyViewer --condition=None --format=none
